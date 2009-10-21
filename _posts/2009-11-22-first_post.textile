@@ -1,0 +1,9 @@
+---
+layout: post
+title: How I discovered GitHub
+category: github
+---
+
+h1. {{ page.title }}
+
+little adventure.
