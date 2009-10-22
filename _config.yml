@@ -1,5 +1,5 @@
 auto: true
-permalink: /:month/:day/:year/:title.html
+permalink: /:year/:month/:day/:title.html
 pygments: true
 exclude:
 - README
