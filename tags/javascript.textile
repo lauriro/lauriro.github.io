@@ -1,0 +1,5 @@
+---
+layout: tags
+title: javascript
+---
+JavaScript is a scripting language, primarily used in web browsers.

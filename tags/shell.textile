@@ -2,4 +2,3 @@
 layout: tags
 title: shell
 ---
-Stuff about {{ page.title }}

@@ -12,5 +12,4 @@ layout: nil
     <loc>{{ site.home }}{{ post.id }}.html</loc>
     <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
   </url>
-{% endfor %}
-</urlset> 
+{% endfor %}</urlset> 

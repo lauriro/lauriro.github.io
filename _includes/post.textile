@@ -1,0 +1,1 @@
+  <li><span>{{ post.date | date_to_string }}</span> &raquo; {% if post.layout == 'images' %}[images] {% endif %}<a href="{{ post.url }}">{{ post.title }}</a> {{ post.summary }}</li>

@@ -19,5 +19,4 @@ layout: nil
    <id>{{ site.home }}{{ post.id }}</id>
    <content type="html">{{ post.summary | xml_escape }}</content>
  </entry>
-{% endfor %}
-</feed>
+{% endfor %}</feed>

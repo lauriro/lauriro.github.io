@@ -1,0 +1,36 @@
+---
+layout: post
+title: JavaScript notes
+summary: .
+tags: [code, javascript]
+time: "01:40"
+---
+
+
+<script language="JavaScript">
+<!--
+
+function $get(id){
+	var el=document.getElementById(id)||document.getElementsByName(id).item(0)||false;
+	return el;
+}
+
+function run(__self){
+	var self=__self||this;
+	var input=$get('in');
+	var output=$get('out');
+	switch(self.value){
+		case 'URL encode':
+			output.value=escape(input.value);
+			break;
+		default:
+			output.value='ERROR: unknown type '+self.value;
+	}
+}
+//-->
+</script>
+<textarea id="in" name="in" rows="8" cols="30"></textarea>
+<span style="display:inline-block">
+<input type="button" value="URL encode" onclick="run(this)"><br>
+</span>
+<textarea id="out" name="out" rows="8" cols="30"></textarea>
