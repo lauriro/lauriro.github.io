@@ -2,4 +2,4 @@
 layout: tags
 title: code
 ---
-Stuff about code
+Stuff about {{ page.title }}

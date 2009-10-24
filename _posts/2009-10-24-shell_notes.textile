@@ -1,13 +1,11 @@
 ---
 layout: post
-title: Some shell notes
+title: Shell notes
 summary: .
 tags: [shell, ssh, tar]
 ---
 
 h2. Coping files
-
-
 
 
 tar czf - /path/directory_to_get | ssh user@host "cat > /path/data.tgz" 

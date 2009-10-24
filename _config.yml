@@ -3,5 +3,9 @@ pygments: true
 lsi: true
 paginate: 25
 permalink: /:year/:month/:day/:title.html
+home: http://lauriro.github.com
+name: Lauri's page
+author: Lauri Rooden
+email: lauri@neti.ee
 exclude:
 - README
