@@ -1,0 +1,26 @@
+---
+layout: post
+title: Some shell notes
+summary: .
+tags: [shell, ssh, tar]
+---
+
+h2. Coping files
+
+
+
+
+tar czf - /path/directory_to_get | ssh user@host "cat > /path/data.tgz" 
+tar czf - /path/directory_to_get | ssh user@host tar xzf - -C /path/
+
+ssh user@host "tar czf - /path/directory_to_get" | cat > /path/data.tgz
+ssh user@host "tar czf - /path/directory_to_get" | tar xzvf - -C /path/
+
+
+h2(#database). Database
+
+mysqldump --quick -u user -p pass -h host database | mysql -u user -p pass -P port -h host
+
+ssh user@host "mysqldump -u user -p pass -h sqlhost database | gzip -cf9" | cat > /path/database.gz
+
+mysql -u user -p pass < query.sql > result.txt

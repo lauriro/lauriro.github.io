@@ -1,0 +1,11 @@
+---
+layout: post
+title: How I discovered GitHub
+summary: A blog is born.
+---
+
+
+little adventure.
+
+
+longer story

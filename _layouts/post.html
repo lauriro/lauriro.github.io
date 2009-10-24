@@ -1,9 +1,23 @@
 ---
 layout: default
 ---
+
 <div id="post">
-{{ content }}
+  <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
+
+  <div id="date">published {{ page.date | date_to_string }}</div>
+  {{ content }}
+
+  {% if page.tags %}
+  <hr />
+    <div class="item_tags">Tags:
+      {% for topic in page.tags %}
+      <a href="/tags/{{ topic }}.html">{{ topic }}</a>{% if forloop.last != true %}, {% endif %}
+      {% endfor %}
+    </div>
+{% endif %}
 </div>
+
 
 <div id="related">
   <h2>Related Posts</h2>

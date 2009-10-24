@@ -1,0 +1,5 @@
+---
+layout: tags
+title: ssh
+---
+Stuff about {{ page.title }}
