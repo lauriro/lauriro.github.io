@@ -8,11 +8,11 @@ layout: default
   <div id="date">published {{ page.date | date_to_string }}</div>
   {{ content }}
 
-  {% if page.tags %}
+  {% if page.tags and page.tags.size > 0 %}
   <hr />
     <div class="item_tags">Tags:
-      {% for topic in page.tags %}
-      <a href="/tags/{{ topic }}.html">{{ topic }}</a>{% if forloop.last != true %}, {% endif %}
+      {% for tag in page.tags %}
+      <a href="/tags/{{ tag }}.html">{{ tag }}</a>{% if forloop.last != true %}, {% endif %}
       {% endfor %}
     </div>
 {% endif %}

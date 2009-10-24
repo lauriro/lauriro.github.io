@@ -8,10 +8,9 @@ layout: nil
     <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
     <changefreq>weekly</changefreq>
   </url>
-  {% for post in site.posts %}
-  <url>
+{% for post in site.posts %}  <url>
     <loc>{{ site.home }}{{ post.id }}.html</loc>
     <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
   </url>
-  {% endfor %}
+{% endfor %}
 </urlset> 
