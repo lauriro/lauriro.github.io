@@ -1,7 +1,7 @@
 html{height:100%;margin-bottom:1px;}
 body{height:100%;}
 
-body,div,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,textarea,p,th,td,center{ 
+div,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,textarea,p,th,td,center{ 
 	margin:0;padding:0;
 }
 form,fieldset,legend,img{

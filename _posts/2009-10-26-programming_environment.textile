@@ -25,7 +25,10 @@ h2. Git
 * http://git-scm.com/
 * http://www.cygwin.com/
 
+git_setup.sh ( "download":/code/git_setup.sh ):
+
 {% highlight bash %}
+#!/bin/sh
 git config --global user.name "Lauri Rooden" 
 git config --global user.email lauri@neti.ee
 
