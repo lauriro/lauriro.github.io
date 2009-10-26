@@ -6,9 +6,7 @@ title: lauriro.github.com
 {% capture total_posts %}{{ site.posts.size }}{% endcapture %}
 
 <ul class="posts">
-{% for post in paginator.posts %}
-	{% include post.textile %}
-{% endfor %}
+{% for post in paginator.posts %}{% include post.textile %}{% endfor %}
 {% if visible_posts == total_posts %}
 Thats all ..
 {% endif %}
@@ -30,24 +28,4 @@ Thats all ..
 <em>All posts on one page :)</em>
 {% endif %}
 
-<h1>Archive</h1>
 
-{% capture first_year %}{{ site.posts.first.date | date: "%Y" }}{% endcapture %}
-{% capture last_year %}{{ site.posts.last.date | date: "%Y" }}{% endcapture %}
-since {{ first_year }}
-
-<ul>
-{% for y in (2007..2025) reversed %}
-  {% if site.collated_posts[y] %}
-    <li>{{ y }}
-    <ul>
-      {% for m in (1..12) reversed %}
-        {% if site.collated_posts[y][m] %}
-          <li><a href='/{{ y }}/{{ m }}/'>{{ m | to_month}}</a></li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-    </li>
-  {% endif %}
-{% endfor %}
-</ul>

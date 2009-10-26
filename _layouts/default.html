@@ -17,6 +17,11 @@
 	<li><a href="/">Home</a></li>
 </ol>
 {{ content }}
+
+{% capture first_year %}{{ site.posts.first.date | date: "%Y" }}{% endcapture %}
+{% capture last_year %}{{ site.posts.last.date | date: "%Y" }}{% endcapture %}
+<p class="footer">since {{ first_year }}{% if first_year != last_year %} to {{ last_year }}{% endif %}</p>
+
 <script type="text/javascript"><!--
 
 addEvent(window,'load',function(){
