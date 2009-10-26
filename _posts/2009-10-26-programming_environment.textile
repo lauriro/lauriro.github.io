@@ -6,6 +6,15 @@ tags: [git]
 ---
 
 
+h2. Notepad++
+
+with:
+[Context Menu Component](http://notepad-plus.sourceforge.net/commun/misc/NppShell.zip)
+
+run_editor ( [download](/code/run_editor.sh) ):
+    #!/bin/sh
+    /c/Documents/MyDrop~1/soft/npp/notepad++.exe -multiInst -notabbar -nosession -noPlugin "`cygpath -w "${1}"`"
+
 
 h2. Git
 
@@ -27,7 +36,7 @@ h2. Git
 > git config --global alias.s status
 > git config --global alias.d diff
 > git config --global alias.cp cherry-pick
-> git config --global alias.e '!/bin/run_editor'
+> git config --global alias.e '!/bin/run_editor.sh'
 > 
 > git config --global core.editor "git e"
 > 
