@@ -4,6 +4,5 @@ author: Lauri Rooden
 email: lauri@neti.ee
 paginate: 25
 permalink: /:year/:month/:day/:title.html
-markdown: rdiscount
 exclude:
 - README
