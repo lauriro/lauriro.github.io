@@ -15,6 +15,11 @@ with:
 
 run_editor.sh ( "download":/code/run_editor.sh ):
 
+{% highlight bash %}
+#!/bin/sh
+/c/Documents/MyDrop~1/soft/npp/notepad++.exe -multiInst -notabbar -nosession -noPlugin "`cygpath -w "${1}"`"
+{% endhighlight %}
+
 h2. Git
 
 * http://git-scm.com/
