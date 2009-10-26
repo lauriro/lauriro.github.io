@@ -9,7 +9,7 @@ tags: [git]
 h2. Notepad++
 
 with:
-[Context Menu Component](http://notepad-plus.sourceforge.net/commun/misc/NppShell.zip)
+* "Context Menu Component":http://notepad-plus.sourceforge.net/commun/misc/NppShell.zip copy to your notepad++ directory and run reg.bat
 
 run_editor ( [download](/code/run_editor.sh) ):
     #!/bin/sh
