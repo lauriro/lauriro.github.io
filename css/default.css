@@ -1,0 +1,25 @@
+html{height:100%;margin-bottom:1px;}
+body{height:100%;}
+
+body,div,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,textarea,p,th,td,center{ 
+	margin:0;padding:0;
+}
+form,fieldset,legend,img{
+	margin:0;padding:0;border:0;
+}
+
+table{border-collapse:collapse;border-spacing:0;}
+
+/* em,strong,dfn,code,samp,bd,var,cite */
+address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:normal;text-align:left;}
+
+h1,h2,h3,h4,h5,h6{font-family:Georgia,serif;font-weight:bold;}
+h1{font-size:2em;}
+h2{font-size:1.8em;}
+h3{font-size:1.6em;}
+h4{font-size:1.4em;}
+h5{font-size:1.2em;}
+h6{font-size:1em;}
+a{color:#069;text-decoration:none;}
+a:hover{color:#023;}
+a:active,a:focus{background-color:#f93;outline:none;}
