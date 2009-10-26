@@ -4,7 +4,7 @@ title: Programming environment
 summary: How to I set up my programming environment.
 tags: [git]
 css:
-- pygments
+- /css/pygments.css
 ---
 
 
@@ -14,9 +14,10 @@ with:
 * "Context Menu Component":http://notepad-plus.sourceforge.net/commun/misc/NppShell.zip copy to your notepad++ directory and run reg.bat
 
 run_editor ( [download](/code/run_editor.sh) ):
-    #!/bin/sh
-    /c/Documents/MyDrop~1/soft/npp/notepad++.exe -multiInst -notabbar -nosession -noPlugin "`cygpath -w "${1}"`"
-
+{% highlight shell %}
+#!/bin/sh
+/c/Documents/MyDrop~1/soft/npp/notepad++.exe -multiInst -notabbar -nosession -noPlugin "`cygpath -w "${1}"`"
+{% endhighlight %}
 
 h2. Git
 
