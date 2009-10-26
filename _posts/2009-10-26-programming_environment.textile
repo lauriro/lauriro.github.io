@@ -3,6 +3,8 @@ layout: post
 title: Programming environment
 summary: How to I set up my programming environment.
 tags: [git]
+css:
+- pygments
 ---
 
 
