@@ -2,16 +2,29 @@
 layout: post
 title: Programming environment
 summary: How to I set up my programming environment.
-tags: [git]
+tags: [git, cygwin, notepad++, nginx]
 css:
 - /css/pygments.css
 ---
 
 
-h2. Notepad++
+h2. Cygwin ("link":http://www.cygwin.com/)
+
+with:
+* "git":#git
+
+h2. Mintty ("link":http://code.google.com/p/mintty/)
+as a terminal for Cygwin
+
+h2. Notepad++ ("link":http://notepad-plus.sourceforge.net/)
 
 with:
 * "Context Menu Component":http://notepad-plus.sourceforge.net/commun/misc/NppShell.zip copy to your notepad++ directory and run reg.bat
+* "Plugins":http://sourceforge.net/apps/mediawiki/notepad-plus/index.php?title=Plugin_Central
+** Explorer plugin (Light Explorer removed)
+** LanguageHelp
+** Function List
+
 
 run_editor.sh ( "download":/code/run_editor.sh ):
 
@@ -20,10 +33,11 @@ run_editor.sh ( "download":/code/run_editor.sh ):
 /c/Documents/MyDrop~1/soft/npp/notepad++.exe -multiInst -notabbar -nosession -noPlugin "`cygpath -w "${1}"`"
 {% endhighlight %}
 
-h2. Git
+h2. DiffMerge ("link":http://www.sourcegear.com/diffmerge/)
 
-* http://git-scm.com/
-* http://www.cygwin.com/
+h2(#git). Git ("link":http://git-scm.com/)
+
+Installed under cygwin.
 
 git_setup.sh ( "download":/code/git_setup.sh ):
 
@@ -52,3 +66,32 @@ git config --global mergetool.diffmerge.cmd "/c/Program\ Files/SourceGear/DiffMe
 git config --global mergetool.diffmerge.trustExitCode false
 git mergetool -t diffmerge
 {% endhighlight %}
+
+h2. nginx ("link":http://nginx.net/)
+
+as a webserver
+
+h2. php ("link":http://php.net/)
+
+On FreeBSD:
+
+{% highlight bash %}
+pkg_add -r pkg-config
+pkg_add -r libiconv
+pkg_add -r libxml2
+
+wget http://php-fpm.anight.org/downloads/head/php-5.2.8-fpm-0.5.10.diff.gz
+
+wget http://ee2.php.net/get/php-5.2.8.tar.bz2/from/ee.php.net/mirror
+
+bzip2 -cd php-5.2.8.tar.bz2  | tar xf -
+gzip -cd php-5.2.8-fpm-0.5.10.diff.gz | patch -d php-5.2.8 -p1
+
+cd php-5.2.8
+
+./configure --enable-fastcgi --enable-fpm --with-pgsql
+./configure --enable-memory-limit --with-layout=GNU --with-config-file-scan-dir=/usr/local/etc/php --disable-all --enable-libxml --with-libxml-dir=/usr/local --enable-spl --with-regex=php --disable-cli --enable-fastcgi --enable-fpm --with-pgsql
+
+make all install
+{% endhighlight %}
+
