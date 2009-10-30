@@ -1,5 +1,11 @@
 html{height:100%;margin-bottom:1px;}
-body{height:100%;}
+body{font-size:16px;}
+html>body{font-size:100%;}
+body{
+	height:100%;
+    line-height:1.125em;
+	font-family: tahoma, verdana, "lucida grande", "lucida sans unicode", sans-serif;
+}
 
 div,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,textarea,p,th,td,center{ 
 	margin:0;padding:0;
