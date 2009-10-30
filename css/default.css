@@ -1,13 +1,18 @@
 html{height:100%;margin-bottom:1px;}
-body{font-size:16px;}
-html>body{font-size:100%;}
 body{
-	height:100%;
-    line-height:1.125em;
-	font-family: tahoma, verdana, "lucida grande", "lucida sans unicode", sans-serif;
+	width:80%;
+	min-height:100%;
+	min-width:400px;
+	background:#fff url('default/bg.gif') repeat fixed;
+	font:16px tahoma, verdana, "lucida grande", "lucida sans unicode", sans-serif;
+	margin:0 10%;
+	border-left:1px solid #28385A;
+	border-right:1px solid #01091C;
 }
-
-div,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,textarea,p,th,td,center{ 
+/*
+.625em = 10px
+*/
+div,dl,dt,dd,pre,textarea,p,th,td,center{ 
 	margin:0;padding:0;
 }
 form,fieldset,legend,img{
@@ -19,13 +24,36 @@ table{border-collapse:collapse;border-spacing:0;}
 /* em,strong,dfn,code,samp,bd,var,cite */
 address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:normal;text-align:left;}
 
-h1,h2,h3,h4,h5,h6{font-family:Georgia,serif;font-weight:bold;}
-h1{font-size:2em;}
-h2{font-size:1.8em;}
-h3{font-size:1.6em;}
-h4{font-size:1.4em;}
-h5{font-size:1.2em;}
+h1,h2,h3,h4,h5,h6{
+	font-family:Georgia,serif;font-weight:bold;
+	padding:3px 15px;
+	margin:0;
+}
+h1{font-size:1.625em;}
+h2{font-size:1.5em;}
+h3{font-size:1.375em;}
+h4{font-size:1.25em;}
+h5{font-size:1.125em;}
 h6{font-size:1em;}
 a{color:#069;text-decoration:none;}
 a:hover{color:#023;}
 a:active,a:focus{background-color:#f93;outline:none;}
+
+#header{
+	background:#fff;
+}
+#header h2{
+	font-size:.625em;
+}
+#content{
+	background:#fff;
+	padding:10px;
+}
+
+#footer{
+	clear:both;
+	background:#666;
+	border-top:1px solid #28385A;
+}
+#footer p{padding:8px 10px;color:#eee;font-size:.625em;}
+

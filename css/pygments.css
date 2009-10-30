@@ -1,11 +1,19 @@
-.highlight  {
-background-color:#F0F0F0;
-border-bottom:1px solid #CCCCCC;
-border-top:1px solid #CCCCCC;
-font-family:Bitstream Vera Sans Mono,monospace;
-font-size:13px;
-padding:5px 15px;
-margin:5px 15px;
+.highlight_header{
+	padding:2px 15px;
+	margin:5px 15px -5px 15px;
+	background-color:#999;
+	font-size:.625em;
+	border-top:1px solid #CCCCCC;
+}
+.highlight{
+	background-color:#F0F0F0;
+	border-bottom:1px solid #CCCCCC;
+	border-top:1px solid #CCCCCC;
+	font-family:Bitstream Vera Sans Mono,monospace;
+	font-size:13px;
+	padding:5px 15px;
+	margin:5px 15px;
+	overflow:auto;
 }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
