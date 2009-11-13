@@ -7,26 +7,30 @@ tags: [shell, ssh, tar]
 
 h2(#coping). Coping files
 
-
+{% highlight bash %}
 tar czf - /path/directory_to_get | ssh user@host "cat > /path/data.tgz" 
 tar czf - /path/directory_to_get | ssh user@host tar xzf - -C /path/
 
 ssh user@host "tar czf - /path/directory_to_get" | cat > /path/data.tgz
 ssh user@host "tar czf - /path/directory_to_get" | tar xzvf - -C /path/
-
+{% endhighlight %}
 
 h2(#database). Database
 
+{% highlight bash %}
 mysqldump --quick -u user -p pass -h host database | mysql -u user -p pass -P port -h host
 
 ssh user@host "mysqldump -u user -p pass -h sqlhost database | gzip -cf9" | cat > /path/database.gz
 
 mysql -u user -p pass < query.sql > result.txt
+{% endhighlight %}
 
 h2(#permissions). File system permissions
 
+{% highlight bash %}
 find /www -type d -print0 | xargs -0 chmod 0755
 find /www -type f -print0 | xargs -0 chmod 0644
+{% endhighlight %}
 
 
 

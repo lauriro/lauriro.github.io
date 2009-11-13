@@ -30,7 +30,7 @@ p(highlight_header). run_editor.sh ( "download":/code/run_editor.sh )
 
 {% highlight bash %}
 #!/bin/sh
-/c/Documents/MyDrop~1/soft/npp/notepad++.exe -multiInst -notabbar -nosession -noPlugin "`cygpath -w "${1}"`"
+/c/soft/npp/notepad++.exe -multiInst -notabbar -nosession -noPlugin "`cygpath -w "${1}"`"
 {% endhighlight %}
 
 h2. DiffMerge ("link":http://www.sourcegear.com/diffmerge/)
@@ -64,8 +64,10 @@ git config --global alias.e '!/bin/run_editor.sh'
 
 git config --global core.editor "git e"
 
-git config --global mergetool.diffmerge.cmd "/c/Program\ Files/SourceGear/DiffMerge/DiffMerge.exe --merge --result=\$MERGED \$LOCAL \$BASE \$REMOTE"
+git config --global mergetool.diffmerge.cmd "/c/Program\ Files/SourceGear/DiffMerge/DiffMerge.exe -nosplash --merge --result=\$MERGED \$LOCAL \$BASE \$REMOTE"
 git config --global mergetool.diffmerge.trustExitCode false
+git config --global merge.tool diffmerge
+
 git mergetool -t diffmerge
 
 git config --global diff.external "/c/Code/diffmerge-diff.sh"
