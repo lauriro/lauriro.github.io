@@ -1,0 +1,8 @@
+# +---------------- Minute (0-59)
+# |  +------------- Hour (0-23)
+# |  |  +---------- Day of Month (1-31)
+# |  |  |  +------- Month (1-12 or Jan-Dec)
+# |  |  |  |  +---- Day of Week (0-6 or Sun-Sat) (Sunday=0 or 7)
+# |  |  |  |  |     Examples: "1,2,5,9", "0-4,8-12", "*/2"
+# *  *  *  *  *     /command/to/be executed
+

@@ -64,15 +64,11 @@ git config --global alias.e '!/bin/run_editor.sh'
 
 git config --global core.editor "git e"
 
-git config --global mergetool.diffmerge.cmd "/c/Program\ Files/SourceGear/DiffMerge/DiffMerge.exe -nosplash --merge --result=\$MERGED \$LOCAL \$BASE \$REMOTE"
+git config --global mergetool.diffmerge.cmd "/c/soft/DiffMerge/DiffMerge.exe -nosplash --merge --result=\$MERGED \$LOCAL \$BASE \$REMOTE"
 git config --global mergetool.diffmerge.trustExitCode false
 git config --global merge.tool diffmerge
 
-git mergetool -t diffmerge
-
-git config --global diff.external "/c/Code/diffmerge-diff.sh"
-
-
+git config --global diff.external "/c/soft/diffmerge-diff.sh"
 {% endhighlight %}
 
 h2. nginx ("link":http://nginx.net/)

@@ -8,6 +8,20 @@ tags: [shell, ssh, tar]
 h2(#coping). Coping files
 
 {% highlight bash %}
+
+Given:
+foo=/tmp/my.dir/filename.tar.gz 
+
+We can use these expressions:
+path = ${foo%/*}
+To get: /tmp/my.dir (like dirname)
+file = ${foo##*/}
+To get: filename.tar.gz (like basename)
+base = ${file%%.*}
+To get: filename 
+ext = ${file#*.}
+To get: tar.gz 
+
 tar czf - /path/directory_to_get | ssh user@host "cat > /path/data.tgz" 
 tar czf - /path/directory_to_get | ssh user@host tar xzf - -C /path/
 

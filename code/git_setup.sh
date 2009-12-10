@@ -11,15 +11,20 @@ git config --global color.status auto
 git config --global alias.b branch
 git config --global alias.go checkout
 git config --global alias.c commit
-git config --global alias.cm commit -m
-git config --global alias.cam commit -am
 git config --global alias.s status
 git config --global alias.d diff
+git config --global alias.dh diff HEAD
+git config --global alias.dm diff origin/master
 git config --global alias.cp cherry-pick
 git config --global alias.e '!/bin/run_editor.sh'
 
 git config --global core.editor "git e"
 
-git config --global mergetool.diffmerge.cmd "/c/Program\ Files/SourceGear/DiffMerge/DiffMerge.exe --merge --result=\$MERGED \$LOCAL \$BASE \$REMOTE"
+git config --global mergetool.diffmerge.cmd "/c/soft/DiffMerge/DiffMerge.exe -nosplash --merge --result=\$MERGED \$LOCAL \$BASE \$REMOTE"
 git config --global mergetool.diffmerge.trustExitCode false
-git mergetool -t diffmerge
+git config --global merge.tool diffmerge
+
+git config --global diff.external "/c/soft/diffmerge-diff.sh"
+
+git config --global alias.lp "log --pretty=format:'%h %an, %ar: %s'"
+git config --global alias.lg "log --pretty=format:'%h %an, %ar: %s' --topo-order --graph --all"
