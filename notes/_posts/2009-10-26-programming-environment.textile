@@ -26,7 +26,7 @@ with:
 ** Function List
 
 
-p(highlight_header). run_editor.sh ( "download":/code/run_editor.sh )
+p(highlight_header). run_editor.sh ( "download":/notes/run_editor.sh )
 
 {% highlight bash %}
 #!/bin/sh
@@ -41,7 +41,7 @@ Installed under cygwin.
 
 
 
-p(highlight_header). git_setup.sh ( "download":/code/git_setup.sh )
+p(highlight_header). git_setup.sh ( "download":/notes/git_setup.sh )
 
 {% highlight bash %}
 #!/bin/sh
@@ -99,3 +99,5 @@ cd php-5.2.8
 make all install
 {% endhighlight %}
 
+"DropboxPath":http://wiki.getdropbox.com/DropboxAddons/DropboxPath
+C:\soft\DropboxPath>DropboxPath.exe "C:\dropbox"
