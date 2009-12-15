@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<h2><a href="{{ page.url }}">Images</a></h2>
+
+{{ content }}
+
+<ul class="posts">
+{% for post in site.categories.images %}
+	{% include post.textile %}
+{% endfor %}
+</ul>

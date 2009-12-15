@@ -2,7 +2,7 @@
 layout: images
 title: Scrum meeting
 summary: Photos.
-tags: [images]
+tags: []
 time: "23:10"
 folder: /images/2009-11-16/
 files:
