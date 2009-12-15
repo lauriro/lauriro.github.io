@@ -1,0 +1,17 @@
+---
+layout: images
+title: Scrum meeting
+summary: Photos.
+tags: [images]
+time: "23:10"
+folder: /images/2009-11-16/
+files:
+- DSC_8304.JPG
+- DSC_8306.JPG
+- DSC_8310.JPG
+- DSC_8305.JPG
+- DSC_8308.JPG
+- DSC_8313.JPG
+---
+
+something..

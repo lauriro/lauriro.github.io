@@ -13,7 +13,7 @@ css:
   {{ content }}
 
 <ul>{% for file in page.files %}
-<li><img src="{{ page.folder }}{{ file }}" alt="" /></li>{% endfor %}
+<li><img src="{{ page.folder }}thumbs/{{ file }}" alt="" /></li>{% endfor %}
 </ul>
 
 {% if page.tags and page.tags.size > 0 %}
