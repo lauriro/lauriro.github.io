@@ -41,6 +41,15 @@ a{color:#069;text-decoration:none;}
 a:hover{color:#023;}
 a:active,a:focus{background-color:#f93;outline:none;}
 
+.height{
+	float:right;
+	width:1px;
+	height:100%;
+}
+.clear{
+	clear:both;
+}
+
 #header{
 	background:#fff;
 }
