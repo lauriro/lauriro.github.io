@@ -1,6 +1,7 @@
 ---
 layout: default
 title: lauriro.github.com
+category: home
 ---
 {% capture visible_posts %}{{ paginator.page | minus:1 | times:paginator.per_page | plus:paginator.posts.size }}{% endcapture %}
 {% capture total_posts %}{{ site.posts.size }}{% endcapture %}

@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<h2><a href="{{ page.url }}">Notes</a></h2>
+
+{{ content }}
+
+<ul class="posts">
+{% for post in site.categories.notes %}
+	{% include post.textile %}
+{% endfor %}
+</ul>
