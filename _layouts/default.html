@@ -27,10 +27,10 @@
 {% capture first_year %}{{ site.posts.first.date | date: "%Y" }}{% endcapture %}
 {% capture last_year %}{{ site.posts.last.date | date: "%Y" }}{% endcapture %}
 
+<div class="clear footerspace"></div>
 <div id="footer">
 <p>since {{ first_year }}{% if first_year != last_year %} to {{ last_year }}{% endif %}</p>
 </div>
-<div class="clear"></div>
 
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

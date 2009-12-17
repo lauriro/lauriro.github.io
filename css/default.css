@@ -61,7 +61,13 @@ a:active,a:focus{background-color:#f93;outline:none;}
 	padding:10px;
 }
 
+.footerspace{
+	height:31px;
+}
+
 #footer{
+	margin-top:-31px;
+	height:30px;
 	clear:both;
 	background:#666;
 	border-top:1px solid #28385A;
