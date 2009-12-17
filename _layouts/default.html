@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="{{ css }}" type="text/css" />{% endfor %}{% for js in page.javascript %}
 	<script type="text/javascript" src="{{ js }}"></script>{% endfor %}
 </head><body id="body">
+
+<div id="page">
+
 <div class="height"></div>
 <noscript><div class="warning"><h2>Warning!</h2><p>This application requires JavaScript and cookies to be enabled in your Browser.<hr/>&middot; <a href="http://lauriro.github.com/">lauriro.github.com</a> &middot;</p></div></noscript>
 
@@ -30,6 +33,8 @@
 <div class="clear footerspace"></div>
 <div id="footer">
 <p>since {{ first_year }}{% if first_year != last_year %} to {{ last_year }}{% endif %}</p>
+</div>
+
 </div>
 
 <script type="text/javascript">
