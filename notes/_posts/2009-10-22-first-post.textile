@@ -20,3 +20,5 @@ little adventure.
 
 
 longer story
+
+<script src="http://gist.github.com/267190.js"></script>
