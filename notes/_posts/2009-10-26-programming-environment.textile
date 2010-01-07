@@ -66,6 +66,7 @@ git config --global color.branch auto
 git config --global color.diff auto
 git config --global color.interactive auto
 git config --global color.status auto
+git config --global push.default matching
 
 git config --global alias.b branch
 git config --global alias.go checkout
@@ -85,7 +86,7 @@ git config --global mergetool.diffmerge.trustExitCode false
 git config --global merge.tool diffmerge
 
 git config --global diff.external "/c/Code/diffmerge-diff.sh"
-git config --global diff.external "diffmerge -nosplash \"\$2\" \"\$5\" --title1=\"Old\" --title2=\"New \$1\""
+git config --global diff.external "/bin/sh -c 'diffmerge -nosplash \"\$2\" \"\$5\" --title1=\"Old\" --title2=\"New \$1\"'"
 
 git config --global alias.lp "log --pretty=format:'%h %an, %ar: %s'"
 git config --global alias.lg "log --pretty=format:'%h %an, %ar: %s' --topo-order --graph --all"
