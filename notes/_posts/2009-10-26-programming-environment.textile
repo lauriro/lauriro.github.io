@@ -23,74 +23,15 @@ with:
 
 add to ~/.bashrc
 
-{% highlight bash %}
-source /etc/bash_completion.d/git
-
-export PS1='
-\[\033[32m\]\u@\h \[\033[33m\w$(__git_ps1)\033[0m\]
-$ '
-
-alias ui='cd /c/Code/yoga/web'
-alias web='cd /c/Code/github/lauriro.github.com'
-
-alias ssh-add='ssh-agent >~/ssh-agent-pid; source ~/ssh-agent-pid; ssh-add'
-
-alias runphp='/c/Arhiiv/php-5.2.6-Win32/php-cgi.exe -b 127.0.0.1:9000 &'
-alias diffmerge='/c/Program\ Files/SourceGear/DiffMerge/DiffMerge.exe'
-
-{% endhighlight %}
+<script src="http://gist.github.com/272850.js?file=.bashrc"></script>
 
 prepare ssh
 
-{% highlight bash %}
-#!/bin/sh
-mkdir ~/.ssh
-touch ~/.ssh/authorized_keys
-touch ~/.ssh/known_hosts
-chmod 700 ~/.ssh
-chmod 644 ~/.ssh/authorized_keys
-chmod 644 ~/.ssh/known_hosts
-chmod 600 ~/.ssh/id_rsa
-chmod 644 ~/.ssh/id_rsa.pub  
-{% endhighlight %}
+<script src="http://gist.github.com/272850.js?file=prepare+ssh"></script>
 
 prepare git
 
-{% highlight bash %}
-#!/bin/sh
-git config --global user.name "Lauri Rooden" 
-git config --global user.email lauri@neti.ee
-
-git config --global core.autocrlf false
-git config --global color.branch auto
-git config --global color.diff auto
-git config --global color.interactive auto
-git config --global color.status auto
-git config --global push.default matching
-
-git config --global alias.b branch
-git config --global alias.go checkout
-git config --global alias.c commit
-git config --global alias.s status
-git config --global alias.d diff
-git config --global alias.dh diff HEAD
-git config --global alias.dm diff origin/master
-git config --global alias.cp cherry-pick
-git config --global alias.e '!/bin/run_editor.sh'
-
-git config --global core.editor "git e"
-
-git config --global mergetool.diffmerge.cmd "diffmerge -nosplash --merge --result=\$MERGED \$LOCAL \$BASE \$REMOTE"
-
-git config --global mergetool.diffmerge.trustExitCode false
-git config --global merge.tool diffmerge
-
-git config --global diff.external "/c/Code/diffmerge-diff.sh"
-git config --global diff.external "/bin/sh -c 'diffmerge -nosplash \"\$2\" \"\$5\" --title1=\"Old\" --title2=\"New \$1\"'"
-
-git config --global alias.lp "log --pretty=format:'%h %an, %ar: %s'"
-git config --global alias.lg "log --pretty=format:'%h %an, %ar: %s' --topo-order --graph --all"
-{% endhighlight %}
+<script src="http://gist.github.com/272850.js?file=prepare+git"></script>
 
 
 h2. Notepad++ ("link":http://notepad-plus.sourceforge.net/)
