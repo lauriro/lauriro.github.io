@@ -4,7 +4,7 @@ title: Programming environment
 summary: How to I set up my programming environment.
 tags: [git, cygwin]
 css:
-- /css/syntax.css
+- /css/pygments.css
 ---
 
 
