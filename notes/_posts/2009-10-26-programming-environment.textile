@@ -36,7 +36,7 @@ alias web='cd /c/Code/github/lauriro.github.com'
 alias ssh-add='ssh-agent >~/ssh-agent-pid; source ~/ssh-agent-pid; ssh-add'
 
 alias runphp='/c/Arhiiv/php-5.2.6-Win32/php-cgi.exe -b 127.0.0.1:9000 &'
-alias diffmerge='/c/Program\ Files/SourceGear/DiffMerge/DiffMerge.exe'
+alias diffmerge='/c/Box/soft/DiffMerge/DiffMerge.exe'
 
 {% endhighlight %}
 
@@ -59,7 +59,7 @@ prepare git
 {% highlight bash %}
 #!/bin/sh
 git config --global user.name "Lauri Rooden" 
-git config --global user.email <my>@<email>
+git config --global user.email lauri@yoga.ee
 
 git config --global core.autocrlf false
 git config --global color.branch auto
@@ -77,20 +77,20 @@ git config --global alias.dh diff HEAD
 git config --global alias.dm diff origin/master
 git config --global alias.cp cherry-pick
 
+git config --global alias.l "log --pretty=format:'%Cred%h%Creset%x09%C(blue)%ar%Creset%x09%C(yellow)%d%Creset %s %Cgreen%an%Creset'"
+git config --global alias.la '!git l --all'
+git config --global alias.lg '!git l --graph'
+git config --global alias.lag '!git l --graph --all'
+
 git config --global alias.e '!/home/Lauri/run_npp.sh'
 git config --global core.editor "git e"
 
 git config --global mergetool.diffmerge.cmd "diffmerge -nosplash --merge --result=\$MERGED \$LOCAL \$BASE \$REMOTE"
-
 git config --global mergetool.diffmerge.trustExitCode false
 git config --global merge.tool diffmerge
 
 git config --global diff.external "/home/Lauri/diffmerge-diff.sh"
 
-git config --global diff.external "/bin/sh -c 'diffmerge -nosplash \"\$2\" \"\$5\" --title1=\"Old\" --title2=\"New \$1\"'"
-
-git config --global alias.lp "log --pretty=format:'%h %an, %ar: %s'"
-git config --global alias.lg "log --pretty=format:'%h %an, %ar: %s' --topo-order --graph --all"
 {% endhighlight %}
 
 
