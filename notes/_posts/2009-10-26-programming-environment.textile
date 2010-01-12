@@ -20,6 +20,7 @@ with:
 * sqlite3
 * rsync
 * mc
+* lighttpd
 
 add to ~/.bashrc
 
@@ -35,7 +36,9 @@ alias web='cd /c/Code/github/lauriro.github.com'
 
 alias ssh-add='ssh-agent >~/ssh-agent-pid; source ~/ssh-agent-pid; ssh-add'
 
-alias runphp='/c/Arhiiv/php-5.2.6-Win32/php-cgi.exe -b 127.0.0.1:9000 &'
+alias runphp='/usr/local/php-5.3.1/php-cgi.exe -b 127.0.0.1:9000 &'
+alias runwww='/usr/sbin/lighttpd -f /etc/lighttpd/lighttpd.conf'
+
 alias diffmerge='/c/Box/soft/DiffMerge/DiffMerge.exe'
 
 {% endhighlight %}
@@ -71,6 +74,9 @@ git config --global push.default matching
 git config --global alias.b branch
 git config --global alias.go checkout
 git config --global alias.c commit
+git config --global alias.ca "commit -a"
+git config --global alias.cm "commit -m"
+git config --global alias.cam "commit -a -m"
 git config --global alias.s status
 git config --global alias.d diff
 git config --global alias.dh diff HEAD
@@ -114,6 +120,17 @@ p(highlight_header). run_editor.sh ( "download":/notes/run_editor.sh )
 h2. DiffMerge ("link":http://www.sourcegear.com/diffmerge/)
 
 
+h2. Lighttpd ("link":http://www.lighttpd.net/)
+
+{% highlight bash %}
+fastcgi.server = ( ".php" =>( "localhost" =>("host" => "127.0.0.1","port" => 9000, "docroot" => "C:\web", "allow-x-send-file" => "enable" )))
+
+$HTTP["url"] =~ "^/(images)/" {
+	proxy.server  = ( "" => ( 
+		("host" => "192.168.24.84", "port" => 8080 )
+	) )
+}
+{% endhighlight %}
 
 h2. nginx ("link":http://nginx.net/)
 
