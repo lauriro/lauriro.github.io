@@ -5,18 +5,24 @@ body{
 	width:80%;
 	height:100%;
 	min-width:400px;
+	color: #333;
+	font-family: georgia, serif;
+	font-size:100%;
+	line-height:1.125em;
 	background:url('default/bg.gif') repeat fixed;
-	font:16px tahoma, verdana, "lucida grande", "lucida sans unicode", sans-serif;
 	margin:0 10%;
 }
+/*
+.625em	= 10px
+.75em	= 12px
+1em		= 16px
+1.125em	= 18px
+*/
 #page{
 	border-left:1px solid #28385A;
 	border-right:1px solid #01091C;
 	background:#fff;
 }
-/*
-.625em = 10px
-*/
 div,dl,dt,dd,pre,textarea,p,th,td,center{ 
 	margin:0;padding:0;
 }
@@ -30,16 +36,22 @@ table{border-collapse:collapse;border-spacing:0;}
 address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:normal;text-align:left;}
 
 h1,h2,h3,h4,h5,h6{
-	font-family:Georgia,serif;font-weight:bold;
-	padding:3px 15px;
+	font-weight:normal;
+	font-family:Georgia,serif;
+	padding:0;
 	margin:0;
 }
-h1{font-size:1.625em;}
-h2{font-size:1.5em;}
-h3{font-size:1.375em;}
-h4{font-size:1.25em;}
-h5{font-size:1.125em;}
-h6{font-size:1em;}
+h1{
+	font-size: 1.375em; /* 16x1.375=22px */
+	line-height: 1.636em;/* 16x1.636=36px */
+	margin: 0;
+}
+
+h2{
+	font-size: 1.125em; /* 16x1.125=18px */
+	margin:1em 0; /* 18x1=18px */
+}
+
 a{color:#069;text-decoration:none;}
 a:hover{color:#023;}
 a:active,a:focus{background-color:#f93;outline:none;}

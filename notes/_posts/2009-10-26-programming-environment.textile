@@ -62,7 +62,7 @@ prepare git
 {% highlight bash %}
 #!/bin/sh
 git config --global user.name "Lauri Rooden" 
-git config --global user.email lauri@yoga.ee
+git config --global user.email <me>@<email>
 
 git config --global core.autocrlf false
 git config --global color.branch auto
@@ -82,8 +82,8 @@ git config --global alias.d diff
 git config --global alias.dh diff HEAD
 git config --global alias.dm diff origin/master
 git config --global alias.cp cherry-pick
-git config --global alias.rmaster "git pull --rebase origin master"
 
+git config --global alias.update "git pull --rebase origin master"
 git config --global alias.publish '!current=`git branch --no-color 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/\1/"` && git go master && git merge lauri && git push && git go $current'
 
 git config --global alias.l "log --pretty=format:'%Cred%h%Creset%x09%C(blue)%ar%Creset%x09%C(yellow)%d%Creset %s %Cgreen%an%Creset'"
