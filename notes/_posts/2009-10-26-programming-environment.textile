@@ -30,16 +30,18 @@ source /etc/bash_completion.d/git
 export PS1='
 \[\033[32m\]\u@\h \[\033[33m\w$(__git_ps1)\033[0m\]
 $ '
+export DISPLAY=127.0.0.1:0.0
 
 alias ui='cd /c/Code/yoga/web'
 alias web='cd /c/Code/github/lauriro.github.com'
 
-alias ssh-add='ssh-agent >~/ssh-agent-pid; source ~/ssh-agent-pid; ssh-add'
+alias ssh-add='if ! kill -0 "$SSH_AGENT_PID" 2>/dev/null; then ssh-agent >~/ssh-agent-pid; fi; source ~/ssh-agent-pid; ssh-add'
 
 alias runphp='/usr/local/php-5.3.1/php-cgi.exe -b 127.0.0.1:9000 &'
-alias runwww='/usr/sbin/lighttpd -f /etc/lighttpd/lighttpd.conf'
+alias runwww='kill `cat /var/run/lighttpd.pid` 2>/dev/null; /usr/sbin/lighttpd -f /etc/lighttpd/lighttpd.conf'
 
 alias diffmerge='/c/Box/soft/DiffMerge/DiffMerge.exe'
+alias runx='XWin.exe -screen 0 -multiwindow -clipboard -xkblayout ee > /dev/null 2>&1 &'
 
 {% endhighlight %}
 
@@ -83,8 +85,8 @@ git config --global alias.dh diff HEAD
 git config --global alias.dm diff origin/master
 git config --global alias.cp cherry-pick
 
-git config --global alias.update "git pull --rebase origin master"
-git config --global alias.publish '!current=`git branch --no-color 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/\1/"` && git go master && git merge lauri && git push && git go $current'
+git config --global alias.update "pull --rebase origin master"
+git config --global alias.publish '!CURRENT=`git branch | grep \*` && git checkout master && git merge ${CURRENT:2} && git push && git checkout ${CURRENT:2}'
 
 git config --global alias.l "log --pretty=format:'%Cred%h%Creset%x09%C(blue)%ar%Creset%x09%C(yellow)%d%Creset %s %Cgreen%an%Creset'"
 git config --global alias.la '!git l --all'
