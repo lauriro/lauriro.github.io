@@ -11,7 +11,7 @@
 	border-top:1px solid #CCCCCC;
 	font-family:"Bitstream Vera Sans Mono",monospace;
 	font-size:13px;
-	padding:5px 15px;
+	padding:0.5em 1em 1em !important;
 	margin:5px 15px;
 	overflow:auto;
 }

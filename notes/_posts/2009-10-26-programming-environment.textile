@@ -5,6 +5,7 @@ summary: How to I set up my programming environment.
 tags: [git, cygwin]
 css:
 - /css/pygments.css
+- /css/gist.css
 ---
 
 
