@@ -1,8 +1,8 @@
 .highlight_header{
 	padding:2px 15px;
-	margin:5px 15px -5px 15px;
+	margin:.4em 1em;
 	background-color:#999;
-	font-size:.625em;
+	font-size:.688em;
 	border-top:1px solid #CCCCCC;
 }
 .highlight{
@@ -10,9 +10,9 @@
 	border-bottom:1px solid #CCCCCC;
 	border-top:1px solid #CCCCCC;
 	font-family:"Bitstream Vera Sans Mono",monospace;
-	font-size:13px;
+	font-size:.813em;
 	padding:0.5em 1em 1em !important;
-	margin:5px 15px;
+	margin:.4em 1em;
 	overflow:auto;
 }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
