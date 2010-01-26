@@ -4,7 +4,6 @@
 	background-color:#F0F0F0;
 	border-bottom:1px solid #CCCCCC;
 	border-top:1px solid #CCCCCC;
-	font-size:.813em !important;
 }
 
 .gist .gist-file{
@@ -13,6 +12,7 @@
 }
 .gist .gist-syntax{
 	background: none;
+	font-size:.813em !important;
 }
 
 .gist .gist-file .gist-data {
