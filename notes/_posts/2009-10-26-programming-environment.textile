@@ -38,6 +38,8 @@ alias web='cd /c/Code/github/lauriro.github.com'
 
 alias ssh-add='if ! kill -0 "$SSH_AGENT_PID" 2>/dev/null; then ssh-agent >~/ssh-agent-pid; fi; source ~/ssh-agent-pid; ssh-add'
 
+alias ssh-sandy='ssh -oproxycommand="ssh -p 11822 lauri@195.50.194.58 nc %h %p" '
+
 alias runphp='/usr/local/php-5.3.1/php-cgi.exe -b 127.0.0.1:9000 &'
 alias runwww='kill `cat /var/run/lighttpd.pid` 2>/dev/null; /usr/sbin/lighttpd -f /etc/lighttpd/lighttpd.conf'
 

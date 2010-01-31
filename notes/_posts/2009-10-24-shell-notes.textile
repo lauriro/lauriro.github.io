@@ -29,6 +29,14 @@ ssh user@host "tar czf - /path/directory_to_get" | cat > /path/data.tgz
 ssh user@host "tar czf - /path/directory_to_get" | tar xzvf - -C /path/
 {% endhighlight %}
 
+h2(#database). Loops
+
+{% highlight bash %}
+for f in *.erl ; do erlc +debug_info -o ../ebin $f; done
+for (( c=1; c<=5; c++ )); do echo "Welcome $c times..."; done
+{% endhighlight %}
+
+
 h2(#database). Database
 
 {% highlight bash %}
@@ -47,6 +55,8 @@ find /www -type f -print0 | xargs -0 chmod 0644
 {% endhighlight %}
 
 
-
+ps -wax -o rss= -p `pgrep -f 'php-cgi'` | awk 'BEGIN {s=0}{s = s + $1} END {print "Total memory used: " s "K"}'
+grep "?mod=update" access.log | awk 'BEGIN {s=0} { s+=1; print $4,$5 " - " $1 " - asukoht: " $11 } END { print "-\nKokku leitud ridu:", s ,"\n-"}'
+curl -d '{"method":"evlog_insert","params":[{"evcode":"test","origin":"web","ts":123,"ids":[1,3,5] }]}' http://192.168.1.193:8000/json-rpc
 
 http://sourceforge.net/projects/console/
