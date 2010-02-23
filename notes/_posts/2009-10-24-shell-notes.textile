@@ -52,6 +52,10 @@ h2(#permissions). File system permissions
 {% highlight bash %}
 find /www -type d -print0 | xargs -0 chmod 0755
 find /www -type f -print0 | xargs -0 chmod 0644
+
+ls -1 -b | grep \.avi | while read FILE; do mkdir "${FILE%%.avi}"; mv "$FILE" "${FILE%%.avi}"; done
+find ./ | grep \.dropbox | while read FILE; do rm "$FILE"; done
+
 {% endhighlight %}
 
 
