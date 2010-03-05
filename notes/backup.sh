@@ -4,8 +4,8 @@
 # Make sure we're running as root
 # if [ `id -u` != 0 ]; then echo "You must be root to use this script";exit 1; fi
 
-BACKUP_DIRS="/c/Code/yoga/rules /c/Code/yoga/web"
-BACKUP_ROOT="/backup/"
+BACKUP_DIRS="/cygdrive/d/Code/yoga"
+BACKUP_ROOT="/cygdrive/f/backup/"
 EXCLUDES=".git/"
 OPTS="-a --force --backup --stats --delete --delete-excluded"
 # -z, --compress		    compress file data during the transfer
@@ -20,7 +20,7 @@ usage() {
 case $1 in
     make)
 		CURRENT=`date +%Y/%m/%d/%H%M%S`
-		mkdir -p ${BACKUP_ROOT}$CURRENT
+		mkdir -p -m 777 ${BACKUP_ROOT}$CURRENT
 
 		for EXCLUDE in $EXCLUDES; do
 			OPTS="$OPTS --exclude $EXCLUDE"

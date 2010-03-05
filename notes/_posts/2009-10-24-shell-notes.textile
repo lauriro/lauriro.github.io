@@ -9,6 +9,10 @@ h2(#coping). Coping files
 
 {% highlight bash %}
 
+
+IP=1.2.3.4; IP=(${IP//./ }); Rev=${IP[3]}.${IP[2]}.${IP[1]}.${IP[0]}; echo $Rev
+
+
 Given:
 foo=/tmp/my.dir/filename.tar.gz 
 
@@ -33,7 +37,10 @@ h2(#database). Loops
 
 {% highlight bash %}
 for f in *.erl ; do erlc +debug_info -o ../ebin $f; done
+
 for (( c=1; c<=5; c++ )); do echo "Welcome $c times..."; done
+
+for i in $(echo "one;two;three" | tr ";" "\n") ; do echo $i; done
 {% endhighlight %}
 
 
