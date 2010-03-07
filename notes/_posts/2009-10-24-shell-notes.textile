@@ -12,6 +12,13 @@ h2(#coping). Coping files
 
 IP=1.2.3.4; IP=(${IP//./ }); Rev=${IP[3]}.${IP[2]}.${IP[1]}.${IP[0]}; echo $Rev
 
+Filesize:
+stat -c%s temp.txt
+cat temp.txt | wc -c
+
+
+Git sha1:
+echo -en "blob 7\0foobar\n" | sha1sum
 
 Given:
 foo=/tmp/my.dir/filename.tar.gz 
