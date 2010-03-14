@@ -3,7 +3,7 @@ layout: post
 title: Bitwise JavaScript
 summary: .
 tags: [code, javascript]
-time: 22:15
+time: "22:15"
 ---
 
 h3. JavaScript's Bitwise Operators.
