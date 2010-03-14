@@ -1,0 +1,1 @@
+  <div id="date">published {{ page.date | date_to_string }} {% if page.time %} at {{ page.time }}{% endif %} by {% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</div>
