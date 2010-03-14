@@ -5,7 +5,7 @@ layout: default
 <div id="post">
   <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>{% if post.summary and post.summary.size > 0 %}
   <div>{{ post.summary }}</div>{% endif %}
-  <div id="date">published {{ page.date | date_to_string }} at {{ post.time }}</div>
+  <div id="date">published {{ page.date | date_to_string }} at {{ post.times }}</div>
   {{ content }}
 
 {% if page.tags and page.tags.size > 0 %}
