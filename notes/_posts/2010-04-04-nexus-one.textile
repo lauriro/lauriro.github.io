@@ -1,0 +1,34 @@
+---
+layout: post
+published: true
+title: Google Nexus One
+summary: I got a new phone.
+tags: [mobile]
+---
+
+h2. Upgrade
+
+- update-cm-5.0.6-N1-signed
+- gapps-passion-ERE36B-2-signed
+
+h2. Must have apps
+
+- SMS Unread Count (by kanokgems)
+- Fauxlight
+- Stats
+- Dropbox
+- Shazam
+- Gesture Search
+- StopWatch
+- M-Parkimine
+- Google Sky Map
+- Google Translate
+- My Tracks
+- Compass
+- Wifi Analyzer
+- APNdroid
+
+http://nexusonehacks.net/nexus-one-hacks/step-by-step-guide-on-how-to-unlock-bootloader-on-your-nexus-one/
+http://nexusonehacks.net/nexus-one-hacks/step-by-step-guide-on-how-to-install-cyanogen-mod-rom-on-your-nexus-one/
+http://forum.xda-developers.com/showthread.php?t=611829
+http://github.com/cyanogen/android_vendor_cyanogen/blob/eclair/CHANGELOG
