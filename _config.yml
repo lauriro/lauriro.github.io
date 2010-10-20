@@ -1,4 +1,4 @@
-home: http://lauriro.github.com
+home: http://lauri.rooden.me
 name: Lauri's page
 author: Lauri Rooden
 email: lauri@neti.ee
@@ -6,3 +6,4 @@ paginate: 25
 permalink: /:year/:month/:day/:title.html
 exclude:
 - README
+- post.sh

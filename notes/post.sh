@@ -1,19 +1,11 @@
 ﻿#!/bin/bash
 # Author: Lauri Rooden <lauri@neti.ee>
 
-echo -n "Please provide a post title: "
+echo "Please provide a post title: "
 read title
 
 # typeset -l filename=$title
-filename="`echo -n "${title}" | tr 'A-Z' 'a-z'`"
-filename=${filename//õ/o}
-filename=${filename//Õ/o}
-filename=${filename//ä/a}
-filename=${filename//Ä/a}
-filename=${filename//ö/o}
-filename=${filename//Ö/o}
-filename=${filename//ü/u}
-filename=${filename//[^a-z0-9]/-}
+filename="`echo -n "${title}" | sed -e 's/[àâä]/a/ig' -e 's/[éèêë]/e/ig' -e 's/[îï]/i/ig' -e 's/[õö]/o/ig' -e 's/[ü]/u/ig' | tr 'A-Z' 'a-z' | tr -c '[a-z0-9]' '-' | sed -e 's/--*/-/g'`"
 FILE="_posts/`date +%Y-%m-%d-`${filename}.textile"
 TIME=`date +%H:%M`
 

@@ -9,17 +9,19 @@ tags: [sqlite, shell]
 #!/bin/bash
 
 # Defining my databse first table
-STRUCTURE="CREATE TABLE data (id INTEGER PRIMARY KEY,name TEXT,value TEXT);";
+STRUCTURE="CREATE TABLE movies (name TEXT);"
 
-# Creating an Empty db file and filling it with my structure
-cat /dev/null > dbname.db
-echo $STRUCTURE > /tmp/tmpstructure
-sqlite3 dbname.db < /tmp/tmpstructure;
-rm -f /tmp/tmpstructure;
+touch movies.db
+echo "CREATE TABLE movies (name TEXT);" | sqlite3 movies.db
+sqlite3 movies.db "INSERT INTO movies (name) VALUES ('test')"
+sqlite3 movies.db "INSERT INTO movies (name) VALUES ('test2')"
+sqlite3 movies.db "INSERT INTO movies (name) VALUES ('test3')"
 
-# Inserting some data into my structure
-sqlite3 dbname.db "INSERT INTO data (name,value) VALUES ('MyName','MyValue')";
-sqlite3 dbname.db "INSERT INTO data (name,value) VALUES ('MyOtherName','MyOtherValue')";
+sqlite3 movies.db "SELECT name FROM movies" | while read NAME; do echo "Muuvi $NAME is cool"; done
+
+sqlite3 status.db "BEGIN TRANSACTION"
+sqlite3 status.db "COMMIT"
+
 
 # Getting my data
 LIST=`sqlite3 dbname.db "SELECT * FROM data WHERE 1"`;
