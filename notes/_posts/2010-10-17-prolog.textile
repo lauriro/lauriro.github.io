@@ -7,6 +7,12 @@ tags: [prolog]
 time: "14:51"
 ---
 
+Run with file:
+$ pl -f test.pl
+
+Load file:
+?- [test.pl].
+
 
 If-then-else
 

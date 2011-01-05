@@ -74,6 +74,10 @@ cat ~/.ssh/id_rsa.pub | ssh remotehost "cat > .ssh/authorized_keys; chmod 600 .s
 or
 ssh-copy-id -i ~/.ssh/id_rsa.pub remotehost
 
+wget -qO - "http://rooden.ee/pub/id_rsa.pub" >> ~/.ssh/authorized_keys
+
+# vim /etc/sudoers
+
 {% endhighlight %}
 
 prepare git

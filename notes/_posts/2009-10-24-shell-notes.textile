@@ -22,6 +22,17 @@ kill -9 `ps -ef |grep stunnel|grep -v grep | awk '{print $2}'`
 Git sha1:
 echo -en "blob 7\0foobar\n" | sha1sum
 
+
+Defininition
+
+$var							: replace by the value of the variable $var if defined. Otherwise nothing.
+${var}						: replace by the value of the variable $var if defined. Otherwise nothing. Better use this, in order to protect from certain inconsistencies when using Strings. 
+${var:-default}		:replace by the value of the variable $ var "if defined. Otherwise the value default.
+${var:+default}		: Set the variable $var with the value default if defined. Otherwise leave empty.
+${var:?"Message"}	: replace by the value of the variable $var if defined. Otherwise, the shell displays specific error message instead of "Message". 
+${var:=default}		: replace by the value of the variable $var if defined. Otherwise create and initialize the variable var with the Value default.
+
+
 Given:
 foo=/tmp/my.dir/filename.tar.gz 
 
@@ -34,6 +45,12 @@ base = ${file%%.*}
 To get: filename 
 ext = ${file#*.}
 To get: tar.gz 
+
+${string/substring/replacement} Replace first match of $substring with $replacement
+${string//substring/replacement} Replace all matches of $substring with $replacement
+${string/#substring/replacement} If $substring matches front end of $string, substitute $replacement for $substring
+${string/%substring/replacement} If $substring matches back end of $string, substitute $replacement for $substring
+
 
 tar czf - /path/directory_to_get | ssh user@host "cat > /path/data.tgz" 
 tar czf - /path/directory_to_get | ssh user@host tar xzf - -C /path/
