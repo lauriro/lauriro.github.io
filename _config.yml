@@ -1,7 +1,7 @@
-home: http://lauri.rooden.me
+home: http://lauri.rooden.ee
 name: Lauri's page
 author: Lauri Rooden
-email: lauri@neti.ee
+email: lauri@rooden.ee
 paginate: 25
 permalink: /:year/:month/:day/:title.html
 exclude:
