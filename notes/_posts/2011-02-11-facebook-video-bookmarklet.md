@@ -23,5 +23,5 @@ How to download video from Facebook
 - Open video in Facebook
 - Click bookmarks and Ctrl+S to save.
 
-[fb-video]: javascript:window.location=unescape(window["swf_"+document.querySelector("#player>div").id].variables.video_src)
+[fb-video]: javascript:window.location=unescape(window["swf_"+document.querySelector("#player%3Ediv").id].variables.video_src)
 
