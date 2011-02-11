@@ -7,22 +7,21 @@ tags: [facebook, video, bookmarklet]
 time: "22:38"
 ---
 
-h2. Facebook video bookmarklet
+## Facebook video bookmarklet
 
 How to download video from Facebook
 
-h3. ver1
+### ver1
 
 - Open video in Facebook
 - paste into addressbar: javascript:window.location=unescape(window["swf_" + document.querySelector("#player>div").id].variables.video_src)
 - Hit Enter and Ctrl+S to save.
 
-h3. ver2
+### ver2
 
-- Drag "FB video":fb-video bookmarklet to your bookmarks bar. (On Internet Explorer, you can right-click and select "Add to Favorites".)
+- Drag [FB video][fb-video] bookmarklet to your bookmarks bar. (On Internet Explorer, you can right-click and select "Add to Favorites".)
 - Open video in Facebook
 - Click bookmarks and Ctrl+S to save.
 
-
-[fb-video]javascript:window.location=unescape(window["swf_" + document.querySelector("#player>div").id].variables.video_src)
+[fb-video]: javascript:window.location=unescape(window["swf_"+document.querySelector("#player>div").id].variables.video_src)
 
