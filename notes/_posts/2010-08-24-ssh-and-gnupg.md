@@ -5,6 +5,9 @@ title: SSH and GnuPG
 summary: Generating keys
 tags: [ssh, gnupg]
 time: "12:05"
+css:
+- /css/pygments.css
+- /css/gist.css
 ---
 
 Setup SSH
@@ -41,10 +44,10 @@ $ openssl pkcs12 -export -in ~/.ssh/id_rsa.pem -inkey ~/.ssh/id_rsa -out ~/.ssh/
 $ gpg --import ~/.ssh/id_rsa.p12
 {% endhighlight %}
 
-### More
+More
+----
 
 {% highlight bash %}
-
 chmod 700 ~/.gnupg
 
 chmod 600 ~/.ssh/id_rsa
@@ -52,4 +55,6 @@ chmod 644 ~/.ssh/id_rsa.pub
 
 cat ~/.ssh/id_rsa.pub | ssh remotehost "cat > .ssh/authorized_keys; chmod 600 .ssh/authorized_keys"
 ssh-copy-id -i ~/.ssh/id_rsa.pub remotehost
+wget -qO - "http://rooden.ee/pub/id_rsa.pub" >> ~/.ssh/authorized_keys
+curl -Ls http://www.rooden.ee/pub/id_rsa.pub >> ~/.ssh/authorized_keys
 {% endhighlight %}

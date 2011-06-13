@@ -3,6 +3,9 @@ layout: post
 title: Shell notes
 summary: Some useful examples about shell.
 tags: [shell, ssh, tar]
+css:
+- /css/pygments.css
+- /css/gist.css
 ---
 
 
