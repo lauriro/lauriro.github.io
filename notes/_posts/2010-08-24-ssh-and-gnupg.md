@@ -7,16 +7,13 @@ tags: [ssh, gnupg]
 time: "12:05"
 ---
 
-h2. SSH and GnuPG
+Setup SSH
+---------
 
-h3. Prepare .ssh folder
 {% highlight bash %}
+# Prepare .ssh folder
 mkdir ~/.ssh
 chmod 700 ~/.ssh
-
-# for ssh connections multiplexing
-mkdir ~/.ssh/connections
-chmod 700 ~/.ssh/connections
 
 touch ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
@@ -24,20 +21,17 @@ touch ~/.ssh/config
 chmod 600 ~/.ssh/config
 touch ~/.ssh/known_hosts
 chmod 600 ~/.ssh/known_hosts
+
+# Generating SSH keys
+ssh-keygen -t rsa -b 2048 -C "me@email.adr"
+
+# for ssh connections multiplexing
+mkdir ~/.ssh/connections
+chmod 700 ~/.ssh/connections
 {% endhighlight %}
 
-h3. Generating SSH keys
-{% highlight bash %}
-$ ssh-keygen -t rsa -C "<me>@<email>"
-Generating public/private rsa key pair.
-Enter file in which to save the key (/home/Lauri/.ssh/id_rsa):
-Enter passphrase (empty for no passphrase):
-Enter same passphrase again:
-Your identification has been saved in /home/Lauri/.ssh/id_rsa.
-Your public key has been saved in /home/Lauri/.ssh/id_rsa.pub.
-{% endhighlight %}
-
-h3. Convert SSH keys to GnuPG
+Convert SSH keys for GnuPG
+--------------------------
 
 {% highlight bash %}
 # create a certificate for ssh key:
@@ -45,8 +39,11 @@ $ openssl req -new -x509 -key ~/.ssh/id_rsa -out ~/.ssh/id_rsa.pem
 # import it in GnuPG
 $ openssl pkcs12 -export -in ~/.ssh/id_rsa.pem -inkey ~/.ssh/id_rsa -out ~/.ssh/id_rsa.p12
 $ gpg --import ~/.ssh/id_rsa.p12
+{% endhighlight %}
 
-h3. More permissions
+### More
+
+{% highlight bash %}
 
 chmod 700 ~/.gnupg
 
@@ -55,3 +52,4 @@ chmod 644 ~/.ssh/id_rsa.pub
 
 cat ~/.ssh/id_rsa.pub | ssh remotehost "cat > .ssh/authorized_keys; chmod 600 .ssh/authorized_keys"
 ssh-copy-id -i ~/.ssh/id_rsa.pub remotehost
+{% endhighlight %}
