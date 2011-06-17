@@ -6,9 +6,11 @@ summary: A blog is born.
 tags: [github]
 css:
 - /css/pygments.css
+- /css/gist.css
 ---
 
-h2. Usage examples ("link":http://www.google.com/)
+Usage examples
+--------------
 
 {% highlight bash %}
 #!/bin/sh

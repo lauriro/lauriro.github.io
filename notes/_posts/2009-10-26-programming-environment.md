@@ -9,7 +9,7 @@ css:
 ---
 
 
-h2. Cygwin ("link":http://www.cygwin.com/)
+## Cygwin
 
 with:
 * mintty ("link":http://code.google.com/p/mintty/)
@@ -50,36 +50,6 @@ alias runx='XWin.exe -screen 0 -multiwindow -clipboard -xkblayout ee > /dev/null
 
 {% endhighlight %}
 
-prepare ssh
-
-{% highlight bash %}
-#!/bin/sh
-
-mkdir ~/.ssh
-chmod 700 ~/.ssh
-mkdir ~/.ssh/connections
-chmod 700 ~/.ssh/connections
-
-touch ~/.ssh/authorized_keys
-chmod 600 ~/.ssh/authorized_keys
-touch ~/.ssh/config
-chmod 600 ~/.ssh/config
-touch ~/.ssh/known_hosts
-chmod 600 ~/.ssh/known_hosts
-
-chmod 600 ~/.ssh/id_rsa
-chmod 644 ~/.ssh/id_rsa.pub  
-
-cat ~/.ssh/id_rsa.pub | ssh remotehost "cat > .ssh/authorized_keys; chmod 600 .ssh/authorized_keys"
-or
-ssh-copy-id -i ~/.ssh/id_rsa.pub remotehost
-
-wget -qO - "http://rooden.ee/pub/id_rsa.pub" >> ~/.ssh/authorized_keys
-
-# vim /etc/sudoers
-
-{% endhighlight %}
-
 prepare git
 
 {% highlight bash %}
@@ -107,10 +77,10 @@ p(highlight_header). run_editor.sh ( "download":/notes/run_editor.sh )
 /c/soft/npp/notepad++.exe -multiInst -notabbar -nosession -noPlugin "`cygpath -w "${1}"`"
 {% endhighlight %}
 
-h2. DiffMerge ("link":http://www.sourcegear.com/diffmerge/)
+## DiffMerge ("link":http://www.sourcegear.com/diffmerge/)
 
 
-h2. Lighttpd ("link":http://www.lighttpd.net/)
+## Lighttpd ("link":http://www.lighttpd.net/)
 
 {% highlight bash %}
 fastcgi.server = ( ".php" =>( "localhost" =>("host" => "127.0.0.1","port" => 9000, "docroot" => "C:\web", "allow-x-send-file" => "enable" )))
@@ -122,11 +92,11 @@ $HTTP["url"] =~ "^/(images)/" {
 }
 {% endhighlight %}
 
-h2. nginx ("link":http://nginx.net/)
+## nginx ("link":http://nginx.net/)
 
 as a webserver
 
-h2. php ("link":http://php.net/)
+## php ("link":http://php.net/)
 
 On FreeBSD:
 

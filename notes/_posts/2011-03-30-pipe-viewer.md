@@ -7,12 +7,15 @@ tags: []
 time: "16:49"
 ---
 
-h2. Pipe Viewer
+## Pipe Viewer
 
+
+{% highlight bash %}
 $ wget -qO - "http://pipeviewer.googlecode.com/files/pv-1.2.0.tar.gz" | tar zxvf -   
 $ cd pv-1.2.0/
 $ ./configure
 $ export DESTDIR=/cygdrive/c/cygwin
 $ make
 $ make install
+{% endhighlight %}
 

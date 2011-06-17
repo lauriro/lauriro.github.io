@@ -6,7 +6,7 @@ tags: [code, javascript]
 time: "22:15"
 ---
 
-h3. JavaScript's Bitwise Operators.
+## JavaScript's Bitwise Operators.
 
 Operator	Action	Example
 &	bitwise AND	10&3=2
@@ -17,7 +17,7 @@ Operator	Action	Example
 >>>	Zero-fill right shift	10>>>3=1
 
 
-h3. Modulus With Bitwise Masks
+### Modulus With Bitwise Masks
 
 http://gala4th.blogspot.com/2009/04/modulus-with-bitwise-masks.html
 

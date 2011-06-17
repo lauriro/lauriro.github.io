@@ -89,7 +89,7 @@ Loops
 
 {% highlight bash %}
 for f in *.erl ; do erlc +debug_info -o ../ebin $f; done
-
+for F in *.mp3*; do mv -v "$F" "$(echo "$F" | sed -e s,@.*,,)"; done
 for (( c=1; c<=5; c++ )); do echo "Welcome $c times..."; done
 
 for i in $(echo "one;two;three" | tr ";" "\n") ; do echo $i; done
@@ -118,7 +118,6 @@ kill -9 `ps -ef |grep stunnel|grep -v grep | awk '{print $2}'`
 echo -en "blob 7\0foobar\n" | sha1sum
 
 
-
 for project in list-of-lots-of-projects; do ( \
 mkdir "$project"; cd "$project"
 git svn init "svn+ssh://user@svnserver.ee/opt/svn/$project" --no-metadata
@@ -130,7 +129,6 @@ grep "?mod=update" access.log | awk 'BEGIN {s=0} { s+=1; print $4,$5 " - " $1 " 
 curl -d '{"method":"evlog_insert","params":[{"evcode":"test","origin":"web","ts":123,"ids":[1,3,5] }]}' http://192.168.1.193:8000/json-rpc
 {% endhighlight %}
 
-http://sourceforge.net/projects/console/
 
 
 
