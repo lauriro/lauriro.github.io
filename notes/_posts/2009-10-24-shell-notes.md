@@ -29,6 +29,32 @@ ${foo%/*}   # remove shortest match from end -> /tmp/my.dir (like dirname)
 ${foo%%.*}  # remove longest match from end -> /tmp/my
 ${foo#*.}   # remove shortest match from front -> dir/filename.tar.gz
 ${foo##*/}  # remove longest match from front -> filename.tar.gz (like basename)
+
+${#foo}     # length
+
+{% endhighlight %}
+
+
+Special variables
+-----------------
+
+{% highlight bash %}
+$0 - $9   positional arguments ($0 refers to the name of the script itself).
+$#        the number of positional arguments.
+$*        a single string of positional arguments "$1 $2 .. $n" separated by IFS variable, starting at $1.
+$@        a sequence of positional arguments ("$1", "$2", ... "$n").
+$?        the exit status of the last command executed. When a command
+          completes successfully, it returns the exit status
+          of 0 (zero), otherwise it returns a non-zero exit
+          status.
+$$        the process number of this shell - useful for
+          including in filenames, to make them unique.
+$!        the process id of the last command run in
+          the background.
+$-        the current options supplied to this invocation
+          of the shell.
+$IFS      internal field separator character.
+$RANDOM   a random integer <= 200 $((RANDOM%=200)). random number between 100 and 300 $((RANDOM%200+100)).
 {% endhighlight %}
 
 
