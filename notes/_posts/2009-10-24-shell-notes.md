@@ -69,8 +69,12 @@ arr=(${arr[@]:0:$((${#arr[@]}-1))}) # pop
 arr=(${arr[@]:1})                   # shift
 arr=($new ${arr[@]})                # unshift
 
+$ IP=1.2.3.4; A=(${IP//./ });
 # Reverse IP
-$ IP=1.2.3.4; A=(${IP//./ }); echo "${A[3]}.${A[2]}.${A[1]}.${A[0]}"
+$ echo "${A[3]}.${A[2]}.${A[1]}.${A[0]}"
+# IP to INT
+$ echo $(((A[0]<<24) + (A[1]<<16) + (A[2]<<8) + A[3]))
+
 {% endhighlight %}
 
 
