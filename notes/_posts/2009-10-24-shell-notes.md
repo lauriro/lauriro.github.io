@@ -9,51 +9,53 @@ css:
 ---
 
 
-Strings
--------
+Variables
+---------
 
 {% highlight bash %}
-${var:-default}   # replace by "default" when $var is not defined.
-${var:+default}   # replace by "default" when $var is defined. Otherwise leave empty.
-${var:?"Message"} # display error message when $var is not defined. 
-${var:=default}   # create $var with the Value default when $var is not defined.
+${var}            # value of var (same as $var)
+${var-DEFAULT}    # replace by $DEFAULT when $var is not defined (or "DEFAULT" when $DEFAULT is not defined).
+${var=DEFAULT}    # create $var with the value $DEFAULT when $var is not defined (or "DEFAULT" when $DEFAULT is not defined).
+${var+DEFAULT}    # replace by $DEFAULT when $var is defined. Otherwise leave empty.
+${var?ERR_MSG}    # if var not set, print $ERR_MSG and abort script with an exit status of 1. 
 
-${var/old/new}    # Replace first match of "old" with "new".
-${var//old/new}   # Replace all matches of "old" with "new".
-${var/#old/new}   # If "old" matches front end of $var, replace "old" with "new".
-${var/%old/new}   # If "old" matches back end of $var, replace "old" with "new".
+${!var*} ${!var@} # matches all previously declared variables beginning with var
 
 # foo=/tmp/my.dir/filename.tar.gz 
 
-${foo%/*}   # remove shortest match from end -> /tmp/my.dir (like dirname)
-${foo%%.*}  # remove longest match from end -> /tmp/my
-${foo#*.}   # remove shortest match from front -> dir/filename.tar.gz
-${foo##*/}  # remove longest match from front -> filename.tar.gz (like basename)
+${foo#*.}         # remove shortest match from front -> dir/filename.tar.gz
+${foo##*/}        # remove longest match from front -> filename.tar.gz (like basename)
+${foo%/*}         # remove shortest match from end -> /tmp/my.dir (like dirname)
+${foo%%.*}        # remove longest match from end -> /tmp/my
 
-${#foo}     # length
-{% endhighlight %}
+${#str}           # length of str
+${str:pos}        # extract substring from $str at $pos
+${str:pos:len}    # extract $len characters substring from $str at $pos [zero-indexed, first character is at position 0]
 
+${str/old/new}    # Replace first match of "old" with "new".
+${str//old/new}   # Replace all matches of "old" with "new".
+${str/#old/new}   # If "old" matches front end of $str, replace "old" with "new".
+${str/%old/new}   # If "old" matches back end of $str, replace "old" with "new".
 
-Special variables
------------------
+# Special variables
 
-{% highlight bash %}
-$0 - $9   positional arguments ($0 refers to the name of the script itself).
-$#        the number of positional arguments.
-$*        a single string of positional arguments "$1 $2 .. $n" separated by IFS variable, starting at $1.
-$@        a sequence of positional arguments ("$1", "$2", ... "$n").
-$?        the exit status of the last command executed. When a command
-          completes successfully, it returns the exit status
-          of 0 (zero), otherwise it returns a non-zero exit
-          status.
-$$        the process number of this shell - useful for
-          including in filenames, to make them unique.
-$!        the process id of the last command run in
-          the background.
-$-        the current options supplied to this invocation
-          of the shell.
-$IFS      internal field separator character.
-$RANDOM   a random integer <= 200 $((RANDOM%=200)). random number between 100 and 300 $((RANDOM%200+100)).
+$0 - $9, ${10}    # positional arguments ($0 refers to the name of the script itself).
+$#                # the number of positional arguments.
+$*                # a single string of positional arguments "$1 $2 .. $n" separated by IFS variable, starting at $1.
+$@                # a sequence of positional arguments ("$1", "$2", ... "$n").
+$?                # the exit status of the last command executed. When a command
+                  # completes successfully, it returns the exit status
+                  # of 0 (zero), otherwise it returns a non-zero exit
+                  # status.
+$$                # the process number of this shell - useful for
+                  # including in filenames, to make them unique.
+$!                # the process id of the last command run in
+                  # the background.
+$-                # the current options supplied to this invocation
+                  # of the shell.
+$_                # last argument of previous command.
+$IFS              # internal field separator character.
+$RANDOM           # a random integer <= 200 $((RANDOM%=200)). random number between 100 and 300 $((RANDOM%200+100)).
 {% endhighlight %}
 
 
@@ -68,6 +70,8 @@ arr=(${arr[@]:0:$((${#arr[@]}-1))}) # pop
 arr=(${arr[@]:1})                   # shift
 arr=($new ${arr[@]})                # unshift
 
+base64_charset=( {A..Z} {a..z} {0..9} + / = )
+
 $ IP=1.2.3.4; A=(${IP//./ });
 # Reverse IP
 $ echo "${A[3]}.${A[2]}.${A[1]}.${A[0]}"
@@ -76,42 +80,38 @@ $ echo $(((A[0]<<24) + (A[1]<<16) + (A[2]<<8) + A[3]))
 {% endhighlight %}
 
 
-Expressions used with if
-------------------------
+Expressions
+-----------
 
 {% highlight bash %}
-[ -a FILE ]	True if FILE exists.
-[ -b FILE ]	True if FILE exists and is a block-special file.
-[ -c FILE ]	True if FILE exists and is a character-special file.
-[ -d FILE ]	True if FILE exists and is a directory.
-[ -e FILE ]	True if FILE exists.
-[ -f FILE ]	True if FILE exists and is a regular file.
-[ -g FILE ]	True if FILE exists and its SGID bit is set.
-[ -h FILE ]	True if FILE exists and is a symbolic link.
-[ -k FILE ]	True if FILE exists and its sticky bit is set.
-[ -p FILE ]	True if FILE exists and is a named pipe (FIFO).
-[ -r FILE ]	True if FILE exists and is readable.
-[ -s FILE ]	True if FILE exists and has a size greater than zero.
-[ -t FD ]	True if file descriptor FD is open and refers to a terminal.
-[ -u FILE ]	True if FILE exists and its SUID (set user ID) bit is set.
-[ -w FILE ]	True if FILE exists and is writable.
-[ -x FILE ]	True if FILE exists and is executable.
-[ -O FILE ]	True if FILE exists and is owned by the effective user ID.
-[ -G FILE ]	True if FILE exists and is owned by the effective group ID.
-[ -L FILE ]	True if FILE exists and is a symbolic link.
-[ -N FILE ]	True if FILE exists and has been modified since it was last read.
-[ -S FILE ]	True if FILE exists and is a socket.
-[ FILE1 -nt FILE2 ]	True if FILE1 has been changed more recently than FILE2, or if FILE1 exists and FILE2 does not.
-[ FILE1 -ot FILE2 ]	True if FILE1 is older than FILE2, or is FILE2 exists and FILE1 does not.
-[ FILE1 -ef FILE2 ]	True if FILE1 and FILE2 refer to the same device and inode numbers.
-[ -o OPTIONNAME ]	True if shell option "OPTIONNAME" is enabled.
-[ -z STRING ]	True of the length if "STRING" is zero.
-[ -n STRING ] or [ STRING ]	True if the length of "STRING" is non-zero.
-[ STRING1 == STRING2 ]	True if the strings are equal. "=" may be used instead of "==" for strict POSIX compliance.
-[ STRING1 != STRING2 ]	True if the strings are not equal.
-[ STRING1 < STRING2 ]	True if "STRING1" sorts before "STRING2" lexicographically in the current locale.
-[ STRING1 > STRING2 ]	True if "STRING1" sorts after "STRING2" lexicographically in the current locale.
-[ ARG1 OP ARG2 ]	"OP" is one of -eq, -ne, -lt, -le, -gt or -ge. These arithmetic binary operators return true if "ARG1" is equal to, not equal to, less than, less than or equal to, greater than, or greater than or equal to "ARG2", respectively. "ARG1" and "ARG2" are integers.
+# arithmetic binary operators
+-eq  equal                         -ne  not equal
+-lt  less than                     -le  less than or equal
+-gt  greater than                  -ge  greater than or equal
+
+# string operators
+-n   not empty                     -z   is empty
+=    equal to                      !=   not equal to
+\<   less than                     \>   greater than (ASCII)
+
+# Files
+-e  file exists.                   -r  file is readable.
+-f  file is a regular file.        -w  file is writable.
+-d  file is a directory.           -x  file is executable.
+-h  file is a symbolic link.       -s  file is not zero size.
+-b  file is a block device.        -u  SUID (set user ID) bit is set.
+-c  file is a character device.    -g  SGID bit is set.
+-p  file is a named pipe (FIFO).   -k  sticky bit is set.
+-S  file is a socket.              -O  file is owned by you.
+-t  file refers to a terminal.     -G  file is owned by your group.
+
+-N          file modified since it was last read.
+F1 -nt F2   file F1 is newer than F2, or F1 exists and F2 does not.
+F1 -ot F2   file F1 is older than F2, or F2 exists and F1 does not.
+F1 -ef F2   files F1 and F2 are hard links to the same file
+
+-o OPT      True if shell option "OPT" is enabled.
+
 Expressions may be combined using the following operators, listed in decreasing order of precedence:
 
 Operation	Effect
