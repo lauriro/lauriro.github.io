@@ -64,11 +64,12 @@ Arrays
 
 {% highlight bash %}
 arr=( )                             # create empty array
-echo ${arr[@]}                      # print array
+arr[0]="foo"                        # set value
 arr=(${arr[@]} $new)                # push
 arr=(${arr[@]:0:$((${#arr[@]}-1))}) # pop
 arr=(${arr[@]:1})                   # shift
 arr=($new ${arr[@]})                # unshift
+echo ${arr[@]}                      # print array
 
 base64_charset=( {A..Z} {a..z} {0..9} + / = )
 
