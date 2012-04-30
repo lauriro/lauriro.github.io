@@ -57,4 +57,7 @@ cat ~/.ssh/id_rsa.pub | ssh remotehost "cat > .ssh/authorized_keys; chmod 600 .s
 ssh-copy-id -i ~/.ssh/id_rsa.pub remotehost
 wget -qO - "http://rooden.ee/pub/id_rsa.pub" >> ~/.ssh/authorized_keys
 curl -Ls http://www.rooden.ee/pub/id_rsa.pub >> ~/.ssh/authorized_keys
+
+# Create a public SSH key from the private key
+ssh-keygen -f ~/.ssh/id_rsa -y > ~/.ssh/id_rsa.pub
 {% endhighlight %}
