@@ -167,6 +167,8 @@ for F in *.mp3*; do mv -v "$F" "$(echo "$F" | sed -e s,@.*,,)"; done
 for (( c=1; c<=5; c++ )); do echo "Welcome $c times..."; done
 
 for i in $(echo "one;two;three" | tr ";" "\n") ; do echo $i; done
+
+ls -l --time-style=long-iso | grep '^-' | while read a b c d e f g name; do test -d $f || mkdir $f; mv $name $f/; done
 {% endhighlight %}
 
 
