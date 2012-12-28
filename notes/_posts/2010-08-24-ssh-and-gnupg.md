@@ -60,4 +60,11 @@ curl -Ls http://www.rooden.ee/pub/id_rsa.pub >> ~/.ssh/authorized_keys
 
 # Create a public SSH key from the private key
 ssh-keygen -f ~/.ssh/id_rsa -y > ~/.ssh/id_rsa.pub
+
+# Compare a remote file with a local file
+ssh user@host cat /path/remotefile | diff /path/localfile -
+
+# SSH network throughput test
+yes | pv | ssh user@host "cat > /dev/null"
+
 {% endhighlight %}

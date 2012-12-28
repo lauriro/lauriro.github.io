@@ -8,10 +8,11 @@ time: "22:15"
 
 ## JavaScript's Bitwise Operators.
 
-Operator	Action	Example
-&	bitwise AND	10&3=2
-|	bitwise OR	10|3=11
-^	bitwise exclusive OR	10^3=9
+Operators
+&	AND	10&3=2
+|	OR	10|3=11
+^	XOR	10^3=9
+~ NOT ~-1=0  ~1=-2
 <<	left shift	10<<3=80
 >>	Sign-propagating right shift	10>>3=1
 >>>	Zero-fill right shift	10>>>3=1
@@ -64,4 +65,37 @@ for(int i = 0, j = 0; i < 256; i++)
     ++j &= 0xF;
 }
 
+
+if (arr.indexOf(value) !== -1)
+if (~arr.indexOf(value))
+
 {% endhighlight %}
+
+
+### Configuration
+
+{% highlight javascript %}
+var Option = {};
+Option.SHRINK = 1 << 0; // pow(2, 0)
+Option.MINIFY = 1 << 1; // pow(2, 1)
+Option.LINT   = 1 << 2; // pow(2, 2)
+Option.ALL    = Option.SHRINK |
+                Option.MINIFY |
+                Option.LINT;
+Option.NUT    = Option.ALL &
+                ~Option.LINT;
+
+
+switch (!!obj.option) {
+  case !!(obj.option & Option.ALL):
+    // perform linting first
+  case !!(obj.option & Option.NUT):
+    // perform minification shrinking ?
+    minify(
+      obj.option & Option.SHRINK
+    );
+}
+{% endhighlight %}
+
+
+
