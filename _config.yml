@@ -7,3 +7,4 @@ permalink: /:year/:month/:day/:title.html
 exclude:
 - README
 - post.sh
+markdown: rdiscount
