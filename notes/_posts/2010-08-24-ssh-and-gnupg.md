@@ -33,6 +33,17 @@ mkdir ~/.ssh/connections
 chmod 700 ~/.ssh/connections
 {% endhighlight %}
 
+
+# Pull id_rsa.pub from remote
+
+> $ ssh host "cat ~/.ssh/id_rsa.pub" >> ~/.ssh/authorized_keys 
+
+
+# Push id_rsa.pub to remote
+
+> $ ssh host "cat - >> ~/.ssh/authorized_keys" < ~/.ssh/id_rsa.pub
+
+
 Convert SSH keys for GnuPG
 --------------------------
 
