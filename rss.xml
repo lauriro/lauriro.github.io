@@ -1,26 +1,19 @@
+---
+layout: plank
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>{{ site.name }}</title>
     <link>{{ site.home }}</link>
     <language>en</language>
-    <webMaster>{{ site.email }} ({{ site.author }})</webMaster>
-    <pubDate>{{ site.time | date_to_xmlschema }}</pubDate>
-    <copyright>Copyright 2007-2010</copyright>
     <ttl>60</ttl>
     <description>software development that flies</description>
-{% for post in site.posts limit: 15 %}
+{% for post in site.posts limit:15 %}
     <item>
       <title>{{ post.title }}</title>
       <link>{{ site.home }}{{ post.url }}</link>
-      <pubDate>{{ post.date }}</pubDate>
-      <guid>{{ site.home }}{{ post.id }}</guid>
-      <description>{{ post.summary | xml_escape }}</description>
-{% if page.tags and page.tags.size > 0 %}
-{% for tag in page.tags %}
-      <category domain="{{ site.home }}/tags/{{ tag | replace:'+','%20'}}.html">{{ tag }}</category>
-      {% endfor %}{% endif %}
     </item>
-    {% endfor %}
+{% endfor %}
   </channel>
 </rss>
