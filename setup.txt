@@ -1,0 +1,3 @@
+curl -s http://rooden.ee/pub/dotfiles.sh | sh -s --
+
+
