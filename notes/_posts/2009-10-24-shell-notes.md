@@ -203,21 +203,33 @@ git svn fetch ); done
 ps -wax -o rss= -p `pgrep -f 'php-cgi'` | awk 'BEGIN {s=0}{s = s + $1} END {print "Total memory used: " s "K"}'
 grep "?mod=update" access.log | awk 'BEGIN {s=0} { s+=1; print $4,$5 " - " $1 " - asukoht: " $11 } END { print "-\nKokku leitud ridu:", s ,"\n-"}'
 curl -d '{"method":"evlog_insert","params":[{"evcode":"test","origin":"web","ts":123,"ids":[1,3,5] }]}' http://192.168.1.193:8000/json-rpc
+{% endhighlight %}
 
+
+
+### Disk stuff
+
+{% highlight bash %}
 # Clear disk cache
 sync; sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'
 sudo sync; sudo sysctrl -w vm.drop_caches=3; free
 
 # Hard Disk Read Speed
-$ dd if=/dev/sda of=/dev/null bs=8k count=256k
-2147483648 bytes (2,1 GB) copied, 11,0468 s, 194 MB/s
-# Hard Disk Write Speed
-$ dd if=/dev/zero of=/tmp/zero bs=8k count=256k
-2147483648 bytes (2,1 GB) copied, 7,36747 s, 291 MB/s
-# Processor/memory bandwidth
-$ dd if=/dev/zero of=/dev/null bs=2M count=10k
-21474836480 bytes (21 GB) copied, 14,6419 s, 1,5 GB/s
+dd if=/dev/sda of=/dev/null bs=1M count=1k
 
+# Hard Disk Write Speed
+dd if=/dev/zero of=test.dump bs=1M count=1k conv=fdatasync
+
+# Processor/memory bandwidth
+dd if=/dev/zero of=/dev/null bs=1M count=10k
+
+# Show progress of `dd`
+dd if=/dev/sda | gzip -c - | ssh user@example.com "dd of=disk_image.gz" &
+pid=$!
+while ps -p $pid > /dev/null; do kill -USR1 $pid; sleep 10; done
+
+# Wipe disk with read-write test
+badblocks -wsv /dev/<device>
 {% endhighlight %}
 
 
