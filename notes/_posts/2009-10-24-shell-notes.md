@@ -122,8 +122,47 @@ Operation	Effect
 [ EXPR1 -o EXPR2 ]	True if either EXPR1 or EXPR2 is true.
 {% endhighlight %}
 
+
+
 Files and folders
 -----------------
+
+Unix allows any character in a filename except NUL.
+`ls` separates filenames with newlines, 
+this leaves us unable to get a list of filenames safely with `ls`.
+
+{% highlight bash %}
+touch 'a,comma' 'a|pipe' 'a space' $'a\nnewline'
+ls | cat
+# a,comma
+# a
+# newline
+# a|pipe
+# a space
+
+# Iterate over files in current directory
+for f in *; do
+	test -f "$f" || continue
+
+	echo "file: $f"
+done
+
+
+# Recursively iterate over files
+find . -type f -exec echo "file: {}" \;
+
+
+# BAD! Do not do this!
+for f in $(ls); do ... done
+for f in $(find . -maxdepth 1); do ... done
+ls | while read f; do ... done
+
+
+# The -print0 feature is typically found on GNU and BSD systems.
+# For find implementations lacking it, it can be emulated
+find . -type f -exec printf '%s\0' {} \; | xargs -0 rm
+{% endhighlight %}
+
 
 {% highlight bash %}
 # push to remote
@@ -146,15 +185,17 @@ wget -qO - "http://www.tarball.com/tarball.gz" | tar zxvf -
 find /www -type d -print0 | xargs -0 chmod 0755
 find /www -type f -print0 | xargs -0 chmod 0644
 
-# Filesize:
-stat -c%s temp.txt
-cat temp.txt | wc -c
+
+### Getting file size
+# POSIX
+size=$(wc -c -- "$file")
+# GNU
+size=$(stat -c %s -- "$file")
 
 
-ls -1 -b | grep \.avi | while read FILE; do mkdir "${FILE%%.avi}"; mv "$FILE" "${FILE%%.avi}"; done
-find ./ | grep \.dropbox | while read FILE; do rm "$FILE"; done
-
+find . -type f -name .dropbox -exec rm {} +
 find . -name *.conf -print0 | xargs -0 grep -l -Z mem_limit | xargs -0 -i cp {} {}.bak
+ls -1 -b | grep \.avi | while read FILE; do mkdir "${FILE%%.avi}"; mv "$FILE" "${FILE%%.avi}"; done
 {% endhighlight %}
 
 
