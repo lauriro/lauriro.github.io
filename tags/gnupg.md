@@ -1,4 +1,4 @@
 ---
 layout: tags
-title: mobile
+title: gnupg
 ---
