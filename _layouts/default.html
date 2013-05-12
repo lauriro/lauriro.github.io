@@ -9,11 +9,10 @@
 	<link rel="stylesheet" href="/css/default.css" type="text/css" />{% for css in page.css %}
 	<link rel="stylesheet" href="{{ css }}" type="text/css" />{% endfor %}{% for js in page.javascript %}
 	<script type="text/javascript" src="{{ js }}"></script>{% endfor %}
-</head><body id="body">
+</head><body>
 
-<noscript><div class="warning"><h2>Warning!</h2><p>This application requires JavaScript and cookies to be enabled in your Browser.<hr/>&middot; <a href="http://lauriro.github.com/">lauriro.github.com</a> &middot;</p></div></noscript>
 
-<div id="page">
+<div class="page min-height">
 
 <div id="header"><h1><a href="/">Lauri's Notes</a></h1>
 <h2 class="shadow">* it's not a home page, just notes</h2>
@@ -24,17 +23,22 @@
 </menu></div>
 
 <div id="content">
+<div class=sidebar>
+{% include tag-cloud.html %}
+</div>
+
 {{ content }}
 </div>
 
 {% capture last_year %}{{ site.posts.first.date | date: "%Y" }}{% endcapture %}
 {% capture first_year %}{{ site.posts.last.date | date: "%Y" }}{% endcapture %}
 
-<div class="clear footerspace"></div>
-<div id="footer">
-<p>since {{ first_year }}{% if first_year != last_year %} to {{ last_year }}{% endif %}</p>
+<div class="cf footerspace"></div>
+
 </div>
 
+<div class="footer">
+<p>since {{ first_year }}{% if first_year != last_year %} to {{ last_year }}{% endif %}</p>
 </div>
 
 <script type="text/javascript">

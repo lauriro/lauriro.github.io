@@ -1,14 +1,9 @@
-html{
-	height:101%;
-}
+@import url("common.css");
+
 body{
 	width:80%;
-	height:100%;
-	min-width:400px;
 	color: #333;
 	font-family: georgia, serif;
-	font-size:100%;
-	line-height:1.125em;
 	background:url('default/bg.gif') repeat fixed;
 	margin:0 10%;
 }
@@ -16,7 +11,7 @@ body{
 .5em/8px .563em/9px .625em/10px .688em/11px .75em/12px .813em/13px .875em/14px .938em/15px
 1em/16px 1.125em/18px 1.25em/20px 1.375em/22px 1.5em/24px 1.625em/26px
 */
-#page{
+.page{
 	border-left:1px solid #28385A;
 	border-right:1px solid #01091C;
 	background:#fff;
@@ -28,7 +23,18 @@ form,fieldset,legend,img{
 	margin:0;padding:0;border:0;
 }
 
-table{border-collapse:collapse;border-spacing:0;}
+::-moz-selection {
+	background-color: #d22;
+	color: #fff;
+	padding: 5px
+}
+
+::selection {
+	background-color: #d22;
+	color: #fff;
+	padding: 5px
+}
+
 
 /* em,strong,dfn,code,samp,bd,var,cite */
 address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:normal;text-align:left;}
@@ -36,18 +42,16 @@ address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:normal;tex
 h1,h2,h3,h4,h5,h6{
 	font-weight:normal;
 	font-family:Georgia,serif;
-	padding:1.5em 0 .8em 0;
+	padding:1em 0 .5em 0;
 	margin:0;
 }
 h1{
 	font-size: 1.375em; /* 16x1.375=22px */
 	line-height: 1.636em;/* 16x1.636=36px */
-	margin: 0;
 }
 
 h2{
 	font-size: 1.125em; /* 16x1.125=18px */
-	margin:1em 0; /* 18x1=18px */
 }
 
 a{color:#069;text-decoration:none;}
@@ -155,16 +159,44 @@ blockquote cite:before {
 	padding:10px;
 }
 
+
+
 .footerspace{
 	height:31px;
 }
 
-#footer{
+.footer{
 	margin-top:-31px;
 	height:30px;
 	clear:both;
 	background:#666;
 	border-top:1px solid #28385A;
 }
-#footer p{padding:8px 10px;color:#eee;font-size:.625em;}
+.footer p{padding:8px 10px;color:#eee;font-size:.625em;}
+
+
+.sidebar {
+	float:right;
+	width:240px;
+	padding:0 25px;		
+}
+
+.sidebar h3 {
+	border-bottom: 1px dashed #888;
+}
+
+.tag-cloud {
+	padding: 0;
+	font-size: 0.8em;
+	list-style-type:none;
+}
+
+.tag-cloud li {
+	display: inline;
+}
+
+.count {
+	float:right;
+	color:#888; 
+}
 
