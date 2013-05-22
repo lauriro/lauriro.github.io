@@ -7,7 +7,6 @@ tags: [shell, uniq, date]
 time: "13:44"
 css:
 - /css/pygments.css
-- /css/gist.css
 ---
 
 ## Linux command line tools
