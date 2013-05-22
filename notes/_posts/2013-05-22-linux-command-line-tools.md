@@ -5,6 +5,9 @@ title: Linux command line tools
 summary:
 tags: [shell, uniq, date]
 time: "13:44"
+css:
+- /css/pygments.css
+- /css/gist.css
 ---
 
 ## Linux command line tools
@@ -18,7 +21,7 @@ sort a b | uniq -d          # intersection - items both in a and b
 sort a a b | uniq -u        # difference - items in b not in a
 sort a b | uniq -u          # symmetric difference - items in only one file
 
-cat a b | sort | uniq       # a union b
+cat a b | sort -u           # a union b
 cat a b | sort | uniq -d    # a intersect b
 cat a b b | sort | uniq -u  # difference a – b
 cat a b | sort | uniq -u    # symmetric difference
