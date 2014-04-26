@@ -25,6 +25,8 @@ ${!var*} ${!var@} # matches all previously declared variables beginning with var
 
 ${foo#*.}         # remove shortest match from front -> dir/filename.tar.gz
 ${foo##*/}        # remove longest match from front -> filename.tar.gz (like basename)
+${foo#??}         # remove two first chars
+${foo%${foo#??}}  # get two first chars
 ${foo%/*}         # remove shortest match from end -> /tmp/my.dir (like dirname)
 ${foo%%.*}        # remove longest match from end -> /tmp/my
 
