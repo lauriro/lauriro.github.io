@@ -27,7 +27,7 @@ cygrunsrv --install php5 --path /usr/local/php-5.3.1/php-cgi.exe -a '-b 127.0.0.
 
 add to ~/.bashrc
 
-{% highlight bash %}
+```bash
 source /etc/bash_completion.d/git
 
 export PS1='
@@ -48,15 +48,15 @@ alias runwww='kill `cat /var/run/lighttpd.pid` 2>/dev/null; /usr/sbin/lighttpd -
 alias diffmerge='/c/Box/soft/DiffMerge/DiffMerge.exe'
 alias runx='XWin.exe -screen 0 -multiwindow -clipboard -xkblayout ee > /dev/null 2>&1 &'
 
-{% endhighlight %}
+```
 
 prepare git
 
-{% highlight bash %}
+```bash
 #!/bin/sh
 git config --global user.name 'Lauri Rooden' 
 git config --global user.email <me>@<email>
-{% endhighlight %}
+```
 
 <script src="http://gist.github.com/285926.js"></script>
 
@@ -72,17 +72,17 @@ with:
 
 p(highlight_header). run_editor.sh ( "download":/notes/run_editor.sh )
 
-{% highlight bash %}
+```bash
 #!/bin/sh
 /c/soft/npp/notepad++.exe -multiInst -notabbar -nosession -noPlugin "`cygpath -w "${1}"`"
-{% endhighlight %}
+```
 
 ## DiffMerge ("link":http://www.sourcegear.com/diffmerge/)
 
 
 ## Lighttpd ("link":http://www.lighttpd.net/)
 
-{% highlight bash %}
+```bash
 fastcgi.server = ( ".php" =>( "localhost" =>("host" => "127.0.0.1","port" => 9000, "docroot" => "C:\web", "allow-x-send-file" => "enable" )))
 
 $HTTP["url"] =~ "^/(images)/" {
@@ -90,7 +90,7 @@ $HTTP["url"] =~ "^/(images)/" {
 		("host" => "192.168.24.84", "port" => 8080 )
 	) )
 }
-{% endhighlight %}
+```
 
 ## nginx ("link":http://nginx.net/)
 
@@ -100,7 +100,7 @@ as a webserver
 
 On FreeBSD:
 
-{% highlight bash %}
+```bash
 pkg_add -r pkg-config
 pkg_add -r libiconv
 pkg_add -r libxml2
@@ -118,7 +118,7 @@ cd php-5.2.8
 ./configure --enable-memory-limit --with-layout=GNU --with-config-file-scan-dir=/usr/local/etc/php --disable-all --enable-libxml --with-libxml-dir=/usr/local --enable-spl --with-regex=php --disable-cli --enable-fastcgi --enable-fpm --with-pgsql
 
 make all install
-{% endhighlight %}
+```
 
 "DropboxPath":http://wiki.getdropbox.com/DropboxAddons/DropboxPath
 C:\soft\DropboxPath>DropboxPath.exe "C:\dropbox"

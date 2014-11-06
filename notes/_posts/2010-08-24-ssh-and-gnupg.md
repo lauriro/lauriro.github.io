@@ -13,7 +13,7 @@ css:
 Setup SSH
 ---------
 
-{% highlight bash %}
+```bash
 # Prepare .ssh folder
 mkdir ~/.ssh
 chmod 700 ~/.ssh
@@ -31,7 +31,7 @@ ssh-keygen -t rsa -b 2048 -C "me@email.adr"
 # for ssh connections multiplexing
 mkdir ~/.ssh/connections
 chmod 700 ~/.ssh/connections
-{% endhighlight %}
+```
 
 
 # Pull id_rsa.pub from remote
@@ -47,18 +47,18 @@ chmod 700 ~/.ssh/connections
 Convert SSH keys for GnuPG
 --------------------------
 
-{% highlight bash %}
+```bash
 # create a certificate for ssh key:
 $ openssl req -new -x509 -key ~/.ssh/id_rsa -out ~/.ssh/id_rsa.pem
 # import it in GnuPG
 $ openssl pkcs12 -export -in ~/.ssh/id_rsa.pem -inkey ~/.ssh/id_rsa -out ~/.ssh/id_rsa.p12
 $ gpg --import ~/.ssh/id_rsa.p12
-{% endhighlight %}
+```
 
 More
 ----
 
-{% highlight bash %}
+```bash
 chmod 700 ~/.gnupg
 
 chmod 600 ~/.ssh/id_rsa
@@ -78,4 +78,4 @@ ssh user@host cat /path/remotefile | diff /path/localfile -
 # SSH network throughput test
 yes | pv | ssh user@host "cat > /dev/null"
 
-{% endhighlight %}
+```

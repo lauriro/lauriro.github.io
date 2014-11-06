@@ -12,9 +12,9 @@ css:
 Usage examples
 --------------
 
-{% highlight bash %}
+```bash
 #!/bin/sh
-{% endhighlight %}
+```
 
 
 

@@ -14,7 +14,7 @@ css:
 
 ### uniq
 
-{% highlight bash %}
+```bash
 sort a b | uniq             # union - items in either a or b
 sort a b | uniq -d          # intersection - items both in a and b
 sort a a b | uniq -u        # difference - items in b not in a
@@ -29,14 +29,14 @@ join -t'\0' -a1 -a2 a b     # union of sorted files
 join -t'\0' a b             # intersection of sorted files
 join -t'\0' -v2 a b         # difference of sorted files
 join -t'\0' -v1 -v2 a b     # symmetric difference of sorted files
-{% endhighlight %}
+```
 
 
 ### Date
 
-{% highlight bash %}
+```bash
 date --date='25 Dec' +%A    # what day does xmas fall on, this year
 date --date='@2147483647'   # convert seconds since the epoch to date
-{% endhighlight %}
+```
 
 

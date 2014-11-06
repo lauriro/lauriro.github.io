@@ -12,7 +12,7 @@ css:
 Variables
 ---------
 
-{% highlight bash %}
+```sh
 ${var}            # value of var (same as $var)
 ${var-DEFAULT}    # replace by $DEFAULT when $var is not defined (or "DEFAULT" when $DEFAULT is not defined).
 ${var=DEFAULT}    # create $var with the value $DEFAULT when $var is not defined (or "DEFAULT" when $DEFAULT is not defined).
@@ -58,13 +58,13 @@ $-                # the current options supplied to this invocation
 $_                # last argument of previous command.
 $IFS              # internal field separator character.
 $RANDOM           # a random integer <= 200 $((RANDOM%=200)). random number between 100 and 300 $((RANDOM%200+100)).
-{% endhighlight %}
+```
 
 
 Arrays
 ------
 
-{% highlight bash %}
+```bash
 arr=( )                             # create empty array
 arr[0]="foo"                        # set value
 arr=(${arr[@]} $new)                # push
@@ -80,13 +80,13 @@ $ IP=1.2.3.4; A=(${IP//./ });
 $ echo "${A[3]}.${A[2]}.${A[1]}.${A[0]}"
 # IP to INT
 $ echo $(((A[0]<<24) + (A[1]<<16) + (A[2]<<8) + A[3]))
-{% endhighlight %}
+```
 
 
 Expressions
 -----------
 
-{% highlight bash %}
+```bash
 # arithmetic binary operators
 -eq  equal                         -ne  not equal
 -lt  less than                     -le  less than or equal
@@ -122,7 +122,7 @@ Operation	Effect
 [ ( EXPR ) ]	Returns the value of EXPR. This may be used to override the normal precedence of operators.
 [ EXPR1 -a EXPR2 ]	True if both EXPR1 and EXPR2 are true.
 [ EXPR1 -o EXPR2 ]	True if either EXPR1 or EXPR2 is true.
-{% endhighlight %}
+```
 
 
 
@@ -133,7 +133,7 @@ Unix allows any character in a filename except NUL.
 `ls` separates filenames with newlines, 
 this leaves us unable to get a list of filenames safely with `ls`.
 
-{% highlight bash %}
+```bash
 touch 'a,comma' 'a|pipe' 'a space' $'a\nnewline'
 ls | cat
 # a,comma
@@ -163,10 +163,10 @@ ls | while read f; do ... done
 # The -print0 feature is typically found on GNU and BSD systems.
 # For find implementations lacking it, it can be emulated
 find . -type f -exec printf '%s\0' {} \; | xargs -0 rm
-{% endhighlight %}
+```
 
 
-{% highlight bash %}
+```bash
 # push to remote
 tar czf - /path/directory_to_get | ssh user@host "cat > /path/data.tgz" 
 tar czf - /path/directory_to_get | ssh user@host tar xzf - -C /path/
@@ -198,13 +198,13 @@ size=$(stat -c %s -- "$file")
 find . -type f -name .dropbox -exec rm {} +
 find . -name *.conf -print0 | xargs -0 grep -l -Z mem_limit | xargs -0 -i cp {} {}.bak
 ls -1 -b | grep \.avi | while read FILE; do mkdir "${FILE%%.avi}"; mv "$FILE" "${FILE%%.avi}"; done
-{% endhighlight %}
+```
 
 
 Loops
 -----
 
-{% highlight bash %}
+```bash
 for f in *.erl ; do erlc +debug_info -o ../ebin $f; done
 for F in *.mp3*; do mv -v "$F" "$(echo "$F" | sed -e s,@.*,,)"; done
 for (( c=1; c<=5; c++ )); do echo "Welcome $c times..."; done
@@ -212,25 +212,25 @@ for (( c=1; c<=5; c++ )); do echo "Welcome $c times..."; done
 for i in $(echo "one;two;three" | tr ";" "\n") ; do echo $i; done
 
 ls -l --time-style=long-iso | grep '^-' | while read a b c d e f g name; do test -d $f || mkdir $f; mv $name $f/; done
-{% endhighlight %}
+```
 
 
 Database
 --------
 
-{% highlight bash %}
+```bash
 mysqldump --quick -u user -p pass -h host database | mysql -u user -p pass -P port -h host
 
 ssh user@host "mysqldump -u user -p pass -h sqlhost database | gzip -cf9" | cat > /path/database.gz
 
 mysql -u user -p pass < query.sql > result.txt
-{% endhighlight %}
+```
 
 
 Random
 ------
 
-{% highlight bash %}
+```bash
 kill -9 `ps -ef |grep stunnel|grep -v grep | awk '{print $2}'`
 
 # Git sha1
@@ -248,13 +248,13 @@ grep "?mod=update" access.log | awk 'BEGIN {s=0} { s+=1; print $4,$5 " - " $1 " 
 curl -d '{"method":"evlog_insert","params":[{"evcode":"test","origin":"web","ts":123,"ids":[1,3,5] }]}' http://192.168.1.193:8000/json-rpc
 
 printf "%'d\n" 1234   # Print number with thousands grouping appropriate to locale
-{% endhighlight %}
+```
 
 
 
 ### Disk stuff
 
-{% highlight bash %}
+```bash
 # Clear disk cache
 sync; sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'
 sudo sync; sudo sysctrl -w vm.drop_caches=3; free
@@ -275,7 +275,7 @@ while ps -p $pid > /dev/null; do kill -USR1 $pid; sleep 10; done
 
 # Wipe disk with read-write test
 badblocks -wsv /dev/<device>
-{% endhighlight %}
+```
 
 
 

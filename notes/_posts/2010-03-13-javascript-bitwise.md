@@ -28,7 +28,7 @@ http://gala4th.blogspot.com/2009/04/modulus-with-bitwise-masks.html
 128 - 127 (0x7F)
 256 - 255 (0xFF)
 
-{% highlight javascript %}
+```javascript
 45 % 32
 45 & 31
 45 & 0x1F
@@ -69,12 +69,12 @@ for(int i = 0, j = 0; i < 256; i++)
 if (arr.indexOf(value) !== -1)
 if (~arr.indexOf(value))
 
-{% endhighlight %}
+```
 
 
 ### Configuration
 
-{% highlight javascript %}
+```javascript
 var Option = {};
 Option.SHRINK = 1 << 0; // pow(2, 0)
 Option.MINIFY = 1 << 1; // pow(2, 1)
@@ -95,7 +95,7 @@ switch (!!obj.option) {
       obj.option & Option.SHRINK
     );
 }
-{% endhighlight %}
+```
 
 
 

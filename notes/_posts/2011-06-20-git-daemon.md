@@ -11,12 +11,12 @@ css:
 
 ## Git daemon
 
-{% highlight bash %}
+```bash
 $ cd /code/test/repo
 $ touch .git/git-daemon-export-ok
 $ git daemon --base-path=/code --enable=receive-pack &
 $ git clone git://localhost/test/repo
-{% endhighlight %}
+```
 
 
 
