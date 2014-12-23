@@ -3,5 +3,13 @@ layout: default
 title: lauriro.github.com
 ---
 
-<h2>Hello</h2>
+<h2><a href="{{ page.url }}">Notes</a></h2>
+
+{{ content }}
+
+<ul class="posts">
+{% for post in site.posts %}
+	{% include post.textile %}
+{% endfor %}
+</ul>
 
