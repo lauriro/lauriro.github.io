@@ -1,21 +1,17 @@
 @import url("common.css");
 
-body{
-	width:80%;
+body {
+	padding: 4em;
+	margin: 0 auto;
+	max-width: 740px;
 	color: #333;
 	font-family: georgia, serif;
-	background:url('default/bg.gif') repeat fixed;
-	margin:0 10%;
+	background: #fff;
 }
 /*
 .5em/8px .563em/9px .625em/10px .688em/11px .75em/12px .813em/13px .875em/14px .938em/15px
 1em/16px 1.125em/18px 1.25em/20px 1.375em/22px 1.5em/24px 1.625em/26px
 */
-.page{
-	border-left:1px solid #28385A;
-	border-right:1px solid #01091C;
-	background:#fff;
-}
 div,dl,dt,dd,pre,textarea,p,th,td,center{ 
 	margin:0;padding:0;
 }
