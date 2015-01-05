@@ -1,4 +1,4 @@
 ---
-layout: nil
+layout: null
 ---
-Sitemap: {{ site.home }}/sitemap.xml
+Sitemap: {{ site.url }}/sitemap.xml

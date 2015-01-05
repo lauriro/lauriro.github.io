@@ -6,10 +6,11 @@ css:
 - /css/lytebox.css
 ---
 
+{% include published.html %}
+
 <div id="post">
   <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>{% if post.summary and post.summary.size > 0 %}
   <div>{{ post.summary }}</div>{% endif %}
-  <div id="date">published {{ page.date | date_to_string }}</div>
   {{ content }}
 
 <hr/>{% for file in page.files %}

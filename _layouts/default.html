@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html><head>
-	<meta charset="UTF-8">
-	<link rel="alternate" type="application/atom+xml" href="/atom.xml" />
-	<title>{{ page.title }}</title>{% if page.summary %}
-	<meta name="description" content="{{ page.summary }}" />{% endif %}
-	<link rel="stylesheet" href="/css/default.css" type="text/css" />{% for css in page.css %}
-	<link rel="stylesheet" href="{{ css }}" type="text/css" />{% endfor %}{% for js in page.javascript %}
-	<script src="{{ js }}"></script>{% endfor %}
-</head><body>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{{ page.title }}</title>{% if page.summary %}
+		<meta name="description" content="{{ page.summary }}">{% endif %}
+		<link rel="stylesheet" type="text/css" href="/css/index.css">{% for css in page.css %}
+		<link rel="stylesheet" type="text/css" href="{{ css }}">{% endfor %}{% for js in page.javascript %}
+		<script src="{{ js }}"></script>{% endfor %}
+	</head>
+<body>
 
 
 <div class="min-height">

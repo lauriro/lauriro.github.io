@@ -185,6 +185,7 @@ blockquote cite:before {
 	padding: 0;
 	font-size: 0.8em;
 	list-style-type:none;
+	text-align: justify;
 }
 
 .tag-cloud li {

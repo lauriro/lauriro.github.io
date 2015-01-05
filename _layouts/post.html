@@ -2,9 +2,9 @@
 layout: default
 ---
 
+{% include published.html %}
+
 <div id="post">
-  <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
-  {% include published.textile %}
   {% if page.summary and page.summary.size > 0 %}
   <div>{{ page.summary }}</div>{% endif %}
   {{ content }}
