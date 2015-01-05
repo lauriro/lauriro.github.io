@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: index
 ---
 <h2><a href="{{ page.url }}">Images</a></h2>
 
@@ -7,6 +7,6 @@ layout: default
 
 <ul class="posts">
 {% for post in site.categories.images %}
-	{% include post.textile %}
+	{% include post.html %}
 {% endfor %}
 </ul>

@@ -10,31 +10,23 @@
 	</head>
 <body>
 
-
-<div class="min-height">
-
-<div id="header"><h1><a href="/">Lauri's Notes</a></h1>
-<h2 class="shadow">* it's not a home page, just notes</h2>
-</div>
-
-<div id="content">
 <div class=sidebar>
 {% include tag-cloud.html %}
 </div>
 
-{{ content }}
+<div class="gray">
+	<h1>
+		<a href="{{ site.url }}">{{ site.name | xml_escape }}</a>
+	</h1>
 </div>
+
+{{ content }}
 
 {% capture last_year %}{{ site.posts.first.date | date: "%Y" }}{% endcapture %}
 {% capture first_year %}{{ site.posts.last.date | date: "%Y" }}{% endcapture %}
 
-<div class="cf footerspace"></div>
 
-</div>
-
-<div class="footer">
-<p>since {{ first_year }}{% if first_year != last_year %} to {{ last_year }}{% endif %}</p>
-</div>
+<p>Since {{ first_year }}{% if first_year != last_year %} to {{ last_year }}{% endif %}</p>
 
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

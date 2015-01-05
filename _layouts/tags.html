@@ -1,14 +1,14 @@
 ---
-layout: default
+layout: index
 ---
-<h2><a href="{{ page.url }}">About: {{ page.title }}</a></h2>
+<h1><a href="{{ page.url }}">About: {{ page.title }}</a></h1>
 
 {{ content }}
 
 <ul class="posts">
 {% for post in site.posts %}
 	{% if post.tags contains page.title %}
-	{% include post.textile %}
+	{% include post.html %}
 	{% endif %}
 {% endfor %}
 </ul>
