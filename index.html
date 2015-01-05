@@ -8,8 +8,6 @@ title: lauriro.github.com
 {{ content }}
 
 <ul class="posts">
-{% for post in site.posts %}
-	{% include post.html %}
-{% endfor %}
+{% for post in site.posts %}{% include post.html %}{% endfor %}
 </ul>
 
