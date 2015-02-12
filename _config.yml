@@ -3,6 +3,7 @@ author: Lauri Rooden
 home: http://lauri.rooden.ee
 url: http://lauri.rooden.ee
 email: lauri@rooden.ee
+ga: UA-22792206-1
 paginate: 25
 permalink: /:year/:month/:day/:title.html
 exclude:

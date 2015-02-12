@@ -54,7 +54,7 @@ post:
 	read title; \
 	clean=$$(printf %s "$$title" | tr A-Z a-z | tr -sc [:alnum:] -); \
 	FILE="_posts/`date +%Y-%m-%d-`$${clean}.md"; \
-	printf -- "$$TAG" "$$title" `date +%H:%M` "$$title" > $$FILE
+	printf -- "$$POST" "$$title" `date +%H:%M` "$$title" > $$FILE
 
 
 
