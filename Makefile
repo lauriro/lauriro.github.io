@@ -29,6 +29,7 @@ endef
 #ALL_TAGS = $(shell grep -Irh '^tags:' . | tr -s ' [],:' '\n' | sort -u | xargs -I@ sh -c 'echo "tags/@.md"')
 
 export TAG
+export POST
 
 .PHONY: tags
 
