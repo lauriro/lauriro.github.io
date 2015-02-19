@@ -12,21 +12,29 @@ css:
 Variables
 ---------
 
+- You can assign one variable to another without quoting. `BASE=${SRC##*/}`
+
+
 ```sh
 ${var}            # value of var (same as $var)
 ${var-DEFAULT}    # replace by $DEFAULT when $var is not defined (or "DEFAULT" when $DEFAULT is not defined).
 ${var=DEFAULT}    # create $var with the value $DEFAULT when $var is not defined (or "DEFAULT" when $DEFAULT is not defined).
 ${var+DEFAULT}    # replace by $DEFAULT when $var is defined. Otherwise leave empty.
-${var?ERR_MSG}    # if var not set, print $ERR_MSG and abort script with an exit status of 1. 
+${var?ERR_MSG}    # if var not set, print $ERR_MSG and abort script with an exit status of 1.
+
+# The `:` rules affect both unassigned and empty variables;
+# the non-`:` rules affect only unassigned variables.
 
 ${!var*} ${!var@} # matches all previously declared variables beginning with var
 
-# foo=/tmp/my.dir/filename.tar.gz 
+# foo=/tmp/my.dir/filename.tar.gz
 
 ${foo#*.}         # remove shortest match from front -> dir/filename.tar.gz
 ${foo##*/}        # remove longest match from front -> filename.tar.gz (like basename)
 ${foo#??}         # remove two first chars
+${foo%??}         # remove two last chars
 ${foo%${foo#??}}  # get two first chars
+${foo#${foo%??}}  # get two last chars
 ${foo%/*}         # remove shortest match from end -> /tmp/my.dir (like dirname)
 ${foo%%.*}        # remove longest match from end -> /tmp/my
 
@@ -86,7 +94,7 @@ $ echo $(((A[0]<<24) + (A[1]<<16) + (A[2]<<8) + A[3]))
 Expressions
 -----------
 
-```bash
+```sh
 # arithmetic binary operators
 -eq  equal                         -ne  not equal
 -lt  less than                     -le  less than or equal
@@ -130,10 +138,10 @@ Files and folders
 -----------------
 
 Unix allows any character in a filename except NUL.
-`ls` separates filenames with newlines, 
+`ls` separates filenames with newlines,
 this leaves us unable to get a list of filenames safely with `ls`.
 
-```bash
+```sh
 touch 'a,comma' 'a|pipe' 'a space' $'a\nnewline'
 ls | cat
 # a,comma
@@ -166,9 +174,9 @@ find . -type f -exec printf '%s\0' {} \; | xargs -0 rm
 ```
 
 
-```bash
+```sh
 # push to remote
-tar czf - /path/directory_to_get | ssh user@host "cat > /path/data.tgz" 
+tar czf - /path/directory_to_get | ssh user@host "cat > /path/data.tgz"
 tar czf - /path/directory_to_get | ssh user@host tar xzf - -C /path/
 cat ~/.ssh/id_rsa.pub | ssh user@host "cat - >> ~/.ssh/authorized_keys"
 
