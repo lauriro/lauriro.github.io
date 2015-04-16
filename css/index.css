@@ -113,7 +113,6 @@ blockquote cite:before {
 .sidebar {
 	float: right;
 	width: 240px;
-	padding: 0 25px;	
 }
 
 .sidebar h3 {
@@ -141,5 +140,6 @@ blockquote cite:before {
 	padding: 2em 4em;
 	margin-top: 4em;
 	box-shadow: 0 0 5px rgba(0,0,0,.2);
+	clear: both;
 }
 
