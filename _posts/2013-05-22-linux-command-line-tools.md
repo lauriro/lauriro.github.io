@@ -14,7 +14,7 @@ css:
 
 ### uniq
 
-```bash
+```sh
 sort a b | uniq             # union - items in either a or b
 sort a b | uniq -d          # intersection - items both in a and b
 sort a a b | uniq -u        # difference - items in b not in a
@@ -32,11 +32,18 @@ join -t'\0' -v1 -v2 a b     # symmetric difference of sorted files
 ```
 
 
-### Date
+### date
 
-```bash
+```sh
 date --date='25 Dec' +%A    # what day does xmas fall on, this year
 date --date='@2147483647'   # convert seconds since the epoch to date
 ```
+
+### Perform some tasks when a file is changed
+
+```sh
+while date; do time node x.js; inotifywait -e close_write x.js; printf '\n\n'; done
+```
+
 
 
