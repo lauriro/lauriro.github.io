@@ -195,6 +195,12 @@ wget -qO - "http://www.tarball.com/tarball.gz" | tar zxvf -
 find /www -type d -print0 | xargs -0 chmod 0755
 find /www -type f -print0 | xargs -0 chmod 0644
 
+# Remove broken symlinks
+find /home -xtype l -delete
+
+# Find links pointing to file
+find -L . -samefile /link/target
+
 
 ### Getting file size
 # POSIX
