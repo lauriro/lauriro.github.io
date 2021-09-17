@@ -1,4 +1,6 @@
 
+# run: curl -s http://lauri.rooden.ee/setup.sh | sh -s --
+
 mkdir -p ~/.config ~/.ssh
 
 # Prepare .ssh folder and files
